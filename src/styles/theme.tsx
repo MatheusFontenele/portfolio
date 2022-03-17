@@ -32,7 +32,7 @@ const components = {
 }
 
 const fonts = {
-  heading: "'M PLUS Rounder 1c'"
+  heading: "'Space Mono', monospace"
 }
 
 const colors = {
