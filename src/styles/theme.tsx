@@ -5,6 +5,13 @@ const styles = {
   global: props => ({
     body: {
       bg: mode('#f0e7db', '#202023')(props)
+    },
+    p: {
+      color: 'rgb(156, 163, 175)',
+      fontWeight: '600'
+    },
+    span: {
+      color: 'rgb(156, 163, 175)'
     }
   })
 }

@@ -48,7 +48,7 @@ const NavBar = props => {
       <Container
         display="flex"
         paddingX={5}
-        maxW="container.md"
+        maxW="container.xl"
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
