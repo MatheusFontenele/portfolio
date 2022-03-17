@@ -19,7 +19,7 @@ const components = {
         textDecorationColor: '#525252',
         textDecorationThickness: 4,
         marginTop: 3,
-        marginBotton: 4
+        marginBottom: 4
       }
     }
   },
