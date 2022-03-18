@@ -7,7 +7,7 @@ import NavBar from '../navbar'
 
 const Main = ({ children, router }: any) => {
   return (
-    <Box as="main" pb={8} h="100vh" w="100vw">
+    <Box as="main">
       <Head>
         <title>Home | Matheus Fontenele</title>
         <meta name="description" content="Matheus's website" />
@@ -18,7 +18,6 @@ const Main = ({ children, router }: any) => {
       <Container
         maxW="container.xl"
         position="relative"
-        pt={14}
         display="flex"
         flexDirection={{ base: 'column', lg: 'row' }}
       >
@@ -33,7 +32,7 @@ const Main = ({ children, router }: any) => {
           overflowY="scroll"
           pt={6}
         >
-          <List h="91vh">
+          <List h={{ base: '100%', lg: '90vh' }}>
             <ListItem>
               <Card />
             </ListItem>

@@ -5,7 +5,6 @@ const Title = styled.span`
   font-size: 18px;
   margin-bottom: 6px;
   font-weight: bold;
-  color: #fff;
 `
 
 export default Title

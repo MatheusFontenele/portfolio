@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   Link,
-  IconButton,
   Button,
   Icon
 } from '@chakra-ui/react'
@@ -23,12 +22,10 @@ import {
   IoLogoDiscord,
   IoLogoLinkedin
 } from 'react-icons/io5'
-import { NodeNextRequest } from 'next/dist/server/base-http/node'
-import Card from '../components/card'
 
 const Home: NextPage = () => {
   return (
-    <Container position={{ base: 'relative', md: 'sticky' }}>
+    <Container flex={1}>
       <Box
         h="90vh"
         display="flex"
@@ -43,6 +40,7 @@ const Home: NextPage = () => {
             mb={6}
             mt={6}
             textAlign="center"
+            boxShadow="sm"
           >
             Hello, I&apos;m a full-stack developer based in Brazil!
           </Box>
@@ -74,12 +72,12 @@ const Home: NextPage = () => {
             <Heading as="h3" variant="section-title">
               Me
             </Heading>
-            <Paragraph>
+            <Text fontSize={['sm', 'md']} fontFamily="Roboto Mono">
               Matheus is someone who is passionate about technology, sports and
               history. Someone who is fascinated to learn new things involving
               code lines, always looking improve my knowledge to solve the more
               simple real-life problem with code{' '}
-            </Paragraph>
+            </Text>
           </Section>
         </Box>
 
