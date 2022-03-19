@@ -1,9 +1,9 @@
 import { Box, Center, Container, List, ListItem } from '@chakra-ui/react'
-import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
 import Card from '../card'
 import NavBar from '../navbar'
+import { ProjectCard } from '../project-card'
 
 const Main = ({ children, router }: any) => {
   return (
@@ -28,11 +28,12 @@ const Main = ({ children, router }: any) => {
               display: 'none'
             }
           }}
+          h={{ base: '100%', lg: '93vh' }}
           overflowX="hidden"
           overflowY="scroll"
           pt={6}
         >
-          <List h={{ base: '100%', lg: '90vh' }}>
+          <List>
             <ListItem>
               <Card />
             </ListItem>
@@ -50,6 +51,20 @@ const Main = ({ children, router }: any) => {
             </ListItem>
             <ListItem>
               <Card />
+            </ListItem>
+          </List>
+
+          <List
+            pb={6}
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+          >
+            <ListItem>
+              <ProjectCard>projectss</ProjectCard>
+            </ListItem>
+            <ListItem>
+              <ProjectCard>projectssss</ProjectCard>
             </ListItem>
           </List>
         </Container>

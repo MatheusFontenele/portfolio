@@ -1,5 +1,5 @@
 import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
-import { motion, useMotionValue, useTransform, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Description from './description'
 import Title from './title'
 import { motion as motion3d } from 'framer-motion-3d'
@@ -7,7 +7,7 @@ import { motion as motion3d } from 'framer-motion-3d'
 
 const cardVariants: Variants = {
   offscreen: {
-    y: 300
+    y: 100
   },
   onscreen: {
     y: 0,
@@ -27,6 +27,8 @@ export default function Card() {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
       variants={cardVariants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
     >
       <Box
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
@@ -37,7 +39,7 @@ export default function Card() {
         justifyContent="space-between"
         flexDirection="column"
         borderRadius={8}
-        boxShadow="md"
+        boxShadow={useColorModeValue('xl', 'md')}
       >
         <Heading fontSize={16} variant="section-title">
           Work
