@@ -25,26 +25,14 @@ import {
 
 const Home: NextPage = () => {
   return (
-    <Container flex={1}>
+    <Container>
       <Box
-        h="90vh"
+        h={{ md: '90vh' }}
         display="flex"
         flexDirection="column"
         justifyContent="space-between"
       >
         <Box>
-          <Box
-            borderRadius="lg"
-            bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-            p={3}
-            mb={6}
-            mt={6}
-            textAlign="center"
-            boxShadow="sm"
-          >
-            Hello, I&apos;m a full-stack developer based in Brazil!
-          </Box>
-
           <Box flexShrink={0} mt={{ base: 4, md: 0 }} mb={6}>
             <Image
               src="https://avatars.githubusercontent.com/u/94790993?v=4"
@@ -54,7 +42,6 @@ const Home: NextPage = () => {
               borderRadius="full"
             />
           </Box>
-
           <Box display={{ md: 'flex' }} mb={10}>
             <Box flexGrow={1}>
               <Heading
@@ -72,7 +59,7 @@ const Home: NextPage = () => {
             <Heading as="h3" variant="section-title">
               Me
             </Heading>
-            <Text fontSize={['sm', 'md']} fontFamily="Roboto Mono">
+            <Text fontSize={['sm', '14px']} fontFamily="Roboto Mono">
               Matheus is someone who is passionate about technology, sports and
               history. Someone who is fascinated to learn new things involving
               code lines, always looking improve my knowledge to solve the more

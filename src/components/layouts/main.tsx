@@ -1,4 +1,4 @@
-import { Box, Center, Container, List, ListItem } from '@chakra-ui/react'
+import { Box, Container, Heading, List, ListItem } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
 import Card from '../card'
@@ -8,12 +8,6 @@ import { ProjectCard } from '../project-card'
 const Main = ({ children, router }: any) => {
   return (
     <Box as="main">
-      <Head>
-        <title>Home | Matheus Fontenele</title>
-        <meta name="description" content="Matheus's website" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <NavBar path={router.asPath} />
       <Container
         maxW="container.xl"
@@ -28,10 +22,11 @@ const Main = ({ children, router }: any) => {
               display: 'none'
             }
           }}
-          h={{ base: '100%', lg: '93vh' }}
+          h={{ base: '100vh', lg: '93vh' }}
           overflowX="hidden"
           overflowY="scroll"
           pt={6}
+          mt={{ base: 8, md: 0 }}
         >
           <List>
             <ListItem>
@@ -53,20 +48,25 @@ const Main = ({ children, router }: any) => {
               <Card />
             </ListItem>
           </List>
-
-          <List
-            pb={6}
-            display="flex"
-            flexDirection="row"
-            justifyContent="space-between"
-          >
-            <ListItem>
-              <ProjectCard>projectss</ProjectCard>
-            </ListItem>
-            <ListItem>
-              <ProjectCard>projectssss</ProjectCard>
-            </ListItem>
-          </List>
+          <Box>
+            <Heading fontSize={16} variant="section-title" mb={6}>
+              Projects
+            </Heading>
+            <List
+              pb={6}
+              display="flex"
+              flexDirection={{ base: 'column', lg: 'row' }}
+              justifyContent={{ base: 'center', lg: 'space-between' }}
+              alignItems="center"
+            >
+              <ListItem>
+                <ProjectCard />
+              </ListItem>
+              <ListItem>
+                <ProjectCard />
+              </ListItem>
+            </List>
+          </Box>
         </Container>
       </Container>
     </Box>

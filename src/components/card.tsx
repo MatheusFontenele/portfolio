@@ -1,9 +1,9 @@
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue, useMergeRefs } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import Description from './description'
 import Title from './title'
-import { motion as motion3d } from 'framer-motion-3d'
-;<motion3d.pointLight animate={{ x: 2 }} />
+import VanillaTilt from 'vanilla-tilt'
 
 const cardVariants: Variants = {
   offscreen: {
@@ -21,18 +21,28 @@ const cardVariants: Variants = {
 }
 
 export default function Card() {
+  const card = useRef()
+
+  useEffect(() => {
+    VanillaTilt.init('.card', {
+      max: 30,
+      speed: 400
+    })
+  }, [])
+
   return (
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={cardVariants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
     >
       <Box
+        className="card"
+        data-tilt
+        data-tilt-reverse="true"
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-        w={{ base: 440, md: '80%', lg: '100%' }}
+        w={{ base: 350, md: '100%', lg: '100%' }}
         p={6}
         mb={6}
         display="flex"

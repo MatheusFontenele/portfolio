@@ -30,7 +30,7 @@ const Logo = () => {
             color={useColorModeValue('gray.900', 'whiteAlpha.900')}
             fontFamily="M PLUS Rounder 1c"
             fontWeight="bold"
-            ml={30}
+            ml={6}
           >
             Matheus Fontenele
           </Text>
