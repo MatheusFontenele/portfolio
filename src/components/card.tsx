@@ -22,7 +22,8 @@ const cardVariants: Variants = {
 
 export default function Card() {
   const card = useRef()
-
+  //data-tilt
+  //data-tilt-reverse="true"
   useEffect(() => {
     VanillaTilt.init('.card', {
       max: 30,
@@ -39,8 +40,6 @@ export default function Card() {
     >
       <Box
         className="card"
-        data-tilt
-        data-tilt-reverse="true"
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         w={{ base: 350, md: '100%', lg: '100%' }}
         p={6}

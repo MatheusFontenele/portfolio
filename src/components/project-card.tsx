@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useColorModeValue } from '@chakra-ui/react'
 
 export const ProjectCard = ({ children }) => (
-  <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
     <Box
       w={240}
       h={300}
@@ -13,6 +13,7 @@ export const ProjectCard = ({ children }) => (
       flexDirection="column"
       borderRadius={12}
       bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+      boxShadow={useColorModeValue('xl', 'md')}
     >
       <Box
         w="100%"

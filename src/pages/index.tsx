@@ -3,7 +3,6 @@ import {
   Container,
   Heading,
   Image,
-  useColorModeValue,
   Text,
   List,
   ListItem,
@@ -12,8 +11,7 @@ import {
   Icon
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import profilePhoto from '../../assets/profile-pic.png'
-import Paragraph from '../components/paragraph'
+
 import Section from '../components/sections'
 import {
   IoLogoTwitter,
@@ -22,14 +20,23 @@ import {
   IoLogoDiscord,
   IoLogoLinkedin
 } from 'react-icons/io5'
+import Card from '../components/card'
+import { ProjectCard } from '../components/project-card'
 
 const Home: NextPage = () => {
   return (
-    <Container>
+    <Container
+      maxW="container.xl"
+      position="relative"
+      display="flex"
+      flexDirection={{ base: 'column', lg: 'row' }}
+    >
       <Box
         h={{ md: '90vh' }}
         display="flex"
         flexDirection="column"
+        position={{ base: 'relative', md: 'sticky' }}
+        top="45px"
         justifyContent="space-between"
       >
         <Box>
@@ -69,7 +76,11 @@ const Home: NextPage = () => {
         </Box>
 
         <Section delay={0.3}>
-          <List display="flex" flexDirection={{ base: 'column', md: 'row' }}>
+          <List
+            display="flex"
+            flexDirection={{ base: 'column', md: 'row' }}
+            marginBottom="6px"
+          >
             <ListItem>
               <Link href="/">
                 <Button
@@ -120,6 +131,51 @@ const Home: NextPage = () => {
           </List>
         </Section>
       </Box>
+      <Container>
+        <List>
+          <ListItem>
+            <Card />
+          </ListItem>
+          <ListItem>
+            <Card />
+          </ListItem>
+          <ListItem>
+            <Card />
+          </ListItem>
+          <ListItem>
+            <Card />
+          </ListItem>
+          <ListItem>
+            <Card />
+          </ListItem>
+          <ListItem>
+            <Card />
+          </ListItem>
+        </List>
+        <Box>
+          <Heading fontSize={16} variant="section-title" mb={6}>
+            Projects
+          </Heading>
+          <List
+            pb={6}
+            display="flex"
+            flexDirection={{ base: 'column', lg: 'row' }}
+            justifyContent={{ base: 'center', lg: 'space-between' }}
+            alignItems="center"
+          >
+            <ListItem>
+              <ProjectCard>
+                <h1>a</h1>
+              </ProjectCard>
+            </ListItem>
+            <ListItem>
+              <ProjectCard>
+                <h1>a</h1>
+              </ProjectCard>
+            </ListItem>
+          </List>
+        </Box>
+      </Container>
     </Container>
   )
 }
