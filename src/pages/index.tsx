@@ -25,11 +25,25 @@ import { ProjectCard } from '../components/project-card'
 
 const Home: NextPage = () => {
   return (
-    <Container
+    <Box
       maxW="container.xl"
       position="relative"
       display="flex"
       flexDirection={{ base: 'column', lg: 'row' }}
+      css={{
+        /* Chrome, Edge, and Safari */
+        '&::-webkit-scrollbar': {
+          width: '10px'
+        },
+        '&::-webkit-scrollbar-track': {
+          background: '#0A0F13'
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: '#c9c9c9',
+          borderRadius: '5px',
+          border: '3px none #ffffff'
+        }
+      }}
     >
       <Box
         h={{ md: '80vh' }}
@@ -178,7 +192,7 @@ const Home: NextPage = () => {
           </List>
         </Box>
       </Container>
-    </Container>
+    </Box>
   )
 }
 

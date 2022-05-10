@@ -67,7 +67,7 @@ const NavBar = props => {
         >
           <LinkItem
             color={useColorModeValue('gray.900', 'whiteAlpha.900')}
-            href="/work"
+            href="/works"
             path={path}
           >
             Works
