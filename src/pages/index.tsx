@@ -32,14 +32,14 @@ const Home: NextPage = () => {
       flexDirection={{ base: 'column', lg: 'row' }}
     >
       <Box
-        h={{ md: '90vh' }}
+        h={{ md: '80vh' }}
         display="flex"
         flexDirection="column"
         position={{ base: 'relative', md: 'sticky' }}
-        top="45px"
+        top="65px"
         justifyContent="space-between"
       >
-        <Box>
+        <Box marginTop="8vh">
           <Box flexShrink={0} mt={{ base: 4, md: 0 }} mb={6}>
             <Image
               src="https://avatars.githubusercontent.com/u/94790993?v=4"
@@ -63,15 +63,17 @@ const Home: NextPage = () => {
           </Box>
 
           <Section delay={0.2}>
-            <Heading as="h3" variant="section-title">
-              Me
-            </Heading>
-            <Text fontSize={['sm', '14px']} fontFamily="Roboto Mono">
-              Matheus is someone who is passionate about technology, sports and
-              history. Someone who is fascinated to learn new things involving
-              code lines, always looking improve my knowledge to solve the more
-              simple real-life problem with code{' '}
-            </Text>
+            <Box width="70%">
+              <Heading as="h3" variant="section-title">
+                Me
+              </Heading>
+              <Text fontSize={['sm', '14px']} fontFamily="Roboto Mono">
+                Matheus is someone who is passionate about technology, sports
+                and history. Someone who is fascinated to learn new things
+                involving code lines, always looking improve my knowledge to
+                solve the more simple real-life problem with code{' '}
+              </Text>
+            </Box>
           </Section>
         </Box>
 
