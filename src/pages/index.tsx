@@ -10,7 +10,7 @@ import {
   Button,
   Icon
 } from '@chakra-ui/react'
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 
 import Section from '../components/sections'
 import {
@@ -20,8 +20,10 @@ import {
   IoLogoDiscord,
   IoLogoLinkedin
 } from 'react-icons/io5'
+
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
+
 import axios from 'axios'
 
 interface RepoProps {
@@ -56,10 +58,11 @@ export default function Home({ reposositoriesData }: homeProps) {
       }}
     >
       <Box
-        h={{ md: '80vh' }}
+        h={{ md: '80vh', base: '100%' }}
+        ml={{ base: '20px' }}
         display="flex"
         flexDirection="column"
-        position={{ base: 'relative', md: 'sticky' }}
+        position={{ md: 'sticky' }}
         top="65px"
         justifyContent="space-between"
       >
@@ -87,7 +90,7 @@ export default function Home({ reposositoriesData }: homeProps) {
           </Box>
 
           <Section delay={0.2}>
-            <Box width="70%">
+            <Box width={{ md: '70%', base: '80%' }}>
               <Heading as="h3" variant="section-title">
                 Me
               </Heading>

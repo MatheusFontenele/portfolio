@@ -43,7 +43,7 @@ export default function Card({ name, description, language }: CardProps) {
       <Box
         className="card"
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-        w={{ base: 350, md: '100%', lg: '100%' }}
+        w={{ base: '100%', md: '80%', lg: '100%' }}
         p={6}
         mb={6}
         display="flex"
@@ -60,7 +60,8 @@ export default function Card({ name, description, language }: CardProps) {
             fontFamily: 'Roboto Mono',
             fontSize: '18px',
             marginBottom: '6px',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: useColorModeValue('#000', '#FFF')
           }}
         >
           {name}
@@ -74,7 +75,11 @@ export default function Card({ name, description, language }: CardProps) {
         >
           {description}
         </span>
-        <span>
+        <span
+          style={{
+            color: useColorModeValue('#000', '#FFF')
+          }}
+        >
           Language:
           <strong> {language}</strong>
         </span>
