@@ -10,7 +10,7 @@ import {
   Button,
   Icon
 } from '@chakra-ui/react'
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 
 import Section from '../components/sections'
 import {
@@ -22,8 +22,18 @@ import {
 } from 'react-icons/io5'
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
+import axios from 'axios'
 
-const Home: NextPage = () => {
+interface RepoProps {
+  name: string
+  description: string
+  language: string
+}
+
+interface homeProps {
+  reposositoriesData: RepoProps[]
+}
+export default function Home({ reposositoriesData }: homeProps) {
   return (
     <Box
       maxW="container.xl"
@@ -196,4 +206,21 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export const getStaticProps: GetStaticProps = async () => {
+  const user = await axios.get('https://api.github.com/users/MatheusFontenele')
+  const repositories = await axios.get(
+    'https://api.github.com/users/MatheusFontenele/repos'
+  )
+
+  const reposositoriesData = repositories.data.map((repo: RepoProps) => {
+    return {
+      name: repo.name,
+      description: repo.description,
+      language: repo.language
+    }
+  })
+  const data = user.data
+  return {
+    props: { data, reposositoriesData }
+  }
+}
