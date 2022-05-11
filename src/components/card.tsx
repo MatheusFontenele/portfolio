@@ -1,8 +1,6 @@
 import { Box, Heading, useColorModeValue, useMergeRefs } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import Description from './description'
-import Title from './title'
 import VanillaTilt from 'vanilla-tilt'
 
 const cardVariants: Variants = {
@@ -19,8 +17,12 @@ const cardVariants: Variants = {
     opacity: 1
   }
 }
-
-export default function Card() {
+interface CardProps {
+  name: string
+  description: string
+  language: string
+}
+export default function Card({ name, description, language }: CardProps) {
   const card = useRef()
   //data-tilt
   //data-tilt-reverse="true"
@@ -53,13 +55,29 @@ export default function Card() {
         <Heading fontSize={16} variant="section-title">
           Work
         </Heading>
-        <Title>Lorem ipsum dolor</Title>
-        <Description>
-          Sit amet consectetur adipisicing elit. Voluptatum, dicta iure officiis
-          sunt maxime reprehenderit veritatis laborum! Ipsam molestias quae, nam
-          alias, hic mollitia, laborum repudiandae quaerat maiores fugiat
-          soluta.
-        </Description>
+        <span
+          style={{
+            fontFamily: 'Roboto Mono',
+            fontSize: '18px',
+            marginBottom: '6px',
+            fontWeight: 'bold'
+          }}
+        >
+          {name}
+        </span>
+        <span
+          style={{
+            fontFamily: 'Roboto Mono',
+            fontSize: '14px',
+            margin: '12px 0'
+          }}
+        >
+          {description}
+        </span>
+        <span>
+          Language:
+          <strong> {language}</strong>
+        </span>
       </Box>
     </motion.div>
   )

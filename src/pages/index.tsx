@@ -159,24 +159,17 @@ export default function Home({ reposositoriesData }: homeProps) {
       </Box>
       <Container>
         <List>
-          <ListItem>
-            <Card />
-          </ListItem>
-          <ListItem>
-            <Card />
-          </ListItem>
-          <ListItem>
-            <Card />
-          </ListItem>
-          <ListItem>
-            <Card />
-          </ListItem>
-          <ListItem>
-            <Card />
-          </ListItem>
-          <ListItem>
-            <Card />
-          </ListItem>
+          {reposositoriesData.map(repo => {
+            return (
+              <ListItem>
+                <Card
+                  name={repo.name}
+                  description={repo.description}
+                  language={repo.language}
+                />
+              </ListItem>
+            )
+          })}
         </List>
         <Box>
           <Heading fontSize={16} variant="section-title" mb={6}>
