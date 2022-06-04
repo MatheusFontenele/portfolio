@@ -8,7 +8,8 @@ import {
   ListItem,
   Link,
   Button,
-  Icon
+  Icon,
+  useColorModeValue
 } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 
@@ -22,6 +23,7 @@ import {
 } from 'react-icons/io5'
 
 import Card from '../components/card'
+import BannerGif from "/code.gif"
 import { ProjectCard } from '../components/project-card'
 
 import axios from 'axios'
@@ -42,41 +44,43 @@ export default function Home({ reposositoriesData }: homeProps) {
       position="relative"
       display="flex"
       flexDirection={{ base: 'column', lg: 'row' }}
-      css={{
-        /* Chrome, Edge, and Safari */
-        '&::-webkit-scrollbar': {
-          width: '10px'
-        },
-        '&::-webkit-scrollbar-track': {
-          background: '#0A0F13'
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: '#c9c9c9',
-          borderRadius: '5px',
-          border: '3px none #ffffff'
-        }
-      }}
     >
       <Box
         h={{ md: '80vh', base: '100%' }}
         ml={{ base: '20px' }}
         display="flex"
         flexDirection="column"
-        position={{ md: 'sticky' }}
-        top="65px"
+        position={{sm: "relative", md: 'sticky' }}
+        top={{base: "0", md: "65px"}}
         justifyContent="space-between"
       >
-        <Box marginTop="8vh">
-          <Box flexShrink={0} mt={{ base: 4, md: 0 }} mb={6}>
+        <Box marginTop="8vh" >
+          <Box 
+            flexShrink={0} 
+            mt={{ base: 4, md: 0 }} 
+            position="relative"
+            w={{base: "100%", md: "95%"}}
+            overflow="hidden"
+            borderRadius="20px"
+            h="230px" 
+          >
+            <Image 
+                src="/code.gif" 
+                alt="" 
+                width="100%" 
+                height={{base: "100%", md: "300px"}}
+              />
+          </Box>
+          <Box display={{ md: 'flex' }} flexDirection="column" mt="-5rem" mb={10}position="relative">
             <Image
               src="https://avatars.githubusercontent.com/u/94790993?v=4"
               maxW="150px"
-              display="inline-block"
               alt="profile Photo"
               borderRadius="full"
+              border="4px"
+              m={{base: "auto", md: "1.5rem"}}
+              borderColor={useColorModeValue('#FFF', '#000')}
             />
-          </Box>
-          <Box display={{ md: 'flex' }} mb={10}>
             <Box flexGrow={1}>
               <Heading
                 as="h2"
@@ -180,17 +184,21 @@ export default function Home({ reposositoriesData }: homeProps) {
           </Heading>
           <List
             pb={6}
-            display="flex"
-            flexDirection={{ base: 'column', lg: 'row' }}
-            justifyContent={{ base: 'center', lg: 'space-between' }}
-            alignItems="center"
+            display="grid"
+            gridTemplateColumns={{base: "1fr", md: "repeat(2, 1fr)"}}
+            gap="1rem"
           >
-            <ListItem>
+            <ListItem display="flex" justifyContent="center" alignItems="center" >
               <ProjectCard>
                 <h1>a</h1>
               </ProjectCard>
             </ListItem>
-            <ListItem>
+            <ListItem display="flex" justifyContent="center" alignItems="center">
+              <ProjectCard>
+                <h1>a</h1>
+              </ProjectCard>
+            </ListItem>
+            <ListItem display="flex" justifyContent="center" alignItems="center">
               <ProjectCard>
                 <h1>a</h1>
               </ProjectCard>

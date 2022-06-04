@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Layout from '../components/layouts/main'
 import theme from '../styles/theme'
 import Fonts from '../components/fonts'
+import "../styles/global.css"
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (

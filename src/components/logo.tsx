@@ -31,6 +31,7 @@ const Logo = () => {
             fontFamily="M PLUS Rounder 1c"
             fontWeight="bold"
             ml={6}
+            display={{base: "none", md: "initial"}}
           >
             Matheus Fontenele
           </Text>

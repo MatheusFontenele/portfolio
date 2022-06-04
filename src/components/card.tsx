@@ -1,4 +1,4 @@
-import { Box, Heading, useColorModeValue, useMergeRefs } from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import VanillaTilt from 'vanilla-tilt'
@@ -41,8 +41,7 @@ export default function Card({ name, description, language }: CardProps) {
       variants={cardVariants}
     >
       <Box
-        className="card"
-        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+        className="glass"
         w={{ base: '100%', md: '80%', lg: '100%' }}
         p={6}
         mb={6}

@@ -42,11 +42,13 @@ const NavBar = props => {
       bg={useColorModeValue('#FFFFFF40', '20202380')}
       style={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
+      position="relative"
       {...props}
     >
       <Container
         display="flex"
         paddingX={5}
+        paddingY={3}
         maxW="container.xl"
         flexWrap="wrap"
         alignItems="center"

@@ -7,7 +7,6 @@ export const ProjectCard = ({ children }) => (
     <Box
       w={240}
       h={300}
-      mr={6}
       mb={6}
       display="flex"
       flexDirection="column"
