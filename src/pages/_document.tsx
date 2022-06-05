@@ -9,7 +9,6 @@ export default class Document extends NextDocument {
         <Head>
           <meta name="description" content="Matheus's website" />
           <link rel="icon" href="./favicon.ico" />
-          {/* <title>Home | Matheus Fontenele</title> */}
         </Head>
         <body>
           {/* 👇 Here's the script */}

@@ -23,7 +23,6 @@ import {
 } from 'react-icons/io5'
 
 import Card from '../components/card'
-import BannerGif from "/code.gif"
 import { ProjectCard } from '../components/project-card'
 
 import axios from 'axios'
@@ -46,7 +45,7 @@ export default function Home({ reposositoriesData }: homeProps) {
       flexDirection={{ base: 'column', lg: 'row' }}
     >
       <Box
-        h={{ md: '80vh', base: '100%' }}
+        h={{ md: '85vh', base: '100%' }}
         ml={{ base: '20px' }}
         display="flex"
         flexDirection="column"
@@ -54,7 +53,7 @@ export default function Home({ reposositoriesData }: homeProps) {
         top={{base: "0", md: "65px"}}
         justifyContent="space-between"
       >
-        <Box marginTop="8vh" >
+        <Box marginTop="4vh" >
           <Box 
             flexShrink={0} 
             mt={{ base: 4, md: 0 }} 
