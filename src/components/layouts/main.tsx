@@ -5,12 +5,12 @@ import NavBar from '../navbar'
 
 const Main = ({ children, router }: any) => {
   return (
-    <Box as="main">
+    <Box as="main" className="bg-[#fffffe]">
       <Head>
         <title>Home | Matheus Fontenele</title>
       </Head>
       <NavBar path={router.asPath} />
-      <Container maxW="container.xl">{children}</Container>
+      <div>{children}</div>
     </Box>
   )
 }

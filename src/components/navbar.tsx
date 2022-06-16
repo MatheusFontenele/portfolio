@@ -26,6 +26,7 @@ const LinkItem = ({ href, path, children }: any) => {
         p={2}
         bg={active ? 'glassTeal' : undefined}
         color={active ? '#202023' : inactiveColor}
+        className="text-xl font-medium"
       >
         {children}
       </Link>
@@ -37,48 +38,48 @@ const NavBar = props => {
   const { path } = props
   return (
     <Box
+      className="bg-[#0f0e17]"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#FFFFFF40', '20202380')}
       style={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
       position="relative"
       {...props}
     >
-      <Container
+      <Box
         display="flex"
         paddingX={5}
         paddingY={3}
-        maxW="container.xl"
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
+        className="max-w-full"
       >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
           </Heading>
         </Flex>
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
-        >
-          <LinkItem
-            color={useColorModeValue('gray.900', 'whiteAlpha.900')}
-            href="/works"
-            path={path}
+
+        <Box className="gap-4" flex={1} display="flex" justifyContent="end">
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            display={{ base: 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
+            alignItems="center"
+            mt={{ base: 4, md: 0 }}
           >
-            Works
-          </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
-          </LinkItem>
-        </Stack>
-        <Box flex={1} display="flex" justifyContent="end">
+            <LinkItem
+              color={useColorModeValue('gray.900', 'whiteAlpha.900')}
+              href="/works"
+              path={path}
+            >
+              Works
+            </LinkItem>
+            <LinkItem href="/posts" path={path}>
+              Posts
+            </LinkItem>
+          </Stack>
           <ThemeToggleButton />
           <Box ml={2} mb={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu>
@@ -102,7 +103,7 @@ const NavBar = props => {
             </Menu>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </Box>
   )
 }

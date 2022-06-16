@@ -2,6 +2,9 @@ import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import VanillaTilt from 'vanilla-tilt'
+import { FaRegFolder } from 'react-icons/fa'
+import { BsGithub } from 'react-icons/bs'
+import { HiExternalLink } from 'react-icons/hi'
 
 const cardVariants: Variants = {
   offscreen: {
@@ -41,35 +44,35 @@ export default function Card({ name, description, language }: CardProps) {
       variants={cardVariants}
     >
       <Box
-        className="glass"
-        w={{ base: '100%', md: '80%', lg: '100%' }}
+        className="w-80 h-72 bg-[#0f0e17]"
         p={6}
-        mb={6}
         display="flex"
         justifyContent="space-between"
         flexDirection="column"
-        borderRadius={8}
+        borderRadius={4}
         boxShadow={useColorModeValue('xl', 'md')}
       >
-        <Heading fontSize={16} variant="section-title">
-          Work
-        </Heading>
+        <Box className="flex justify-between mb-2">
+          <FaRegFolder />{' '}
+          <Box className="flex justify-between gap-2 ">
+            <BsGithub /> <HiExternalLink />
+          </Box>
+        </Box>
         <span
           style={{
             fontFamily: 'Roboto Mono',
             fontSize: '18px',
             marginBottom: '6px',
             fontWeight: 'bold',
-            color: useColorModeValue('#000', '#FFF')
+            color: '#fffffe'
           }}
         >
           {name}
         </span>
         <span
+          className="my-2 text-sm text-[#a7a9be]"
           style={{
-            fontFamily: 'Roboto Mono',
-            fontSize: '14px',
-            margin: '12px 0'
+            fontFamily: 'Roboto Mono'
           }}
         >
           {description}
