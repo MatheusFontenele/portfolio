@@ -26,8 +26,8 @@ interface homeProps {
 export default function Home({ reposositoriesData }: homeProps) {
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
-      <Box className=" h-screen px-8 py-12">
-        <Box className="max-w-4xl mx-auto h-full w-full flex flex-col items-center justify-center md:flex-row">
+      <Box className=" h-screen md:h-[90vh] px-8 py-12">
+        <Box className="max-w-4xl mx-auto md:justify-between h-full w-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
             <Box className="max-w-md mb-20 flex flex-col ">
               <span className="mb-6 font-semibold">Hi, my name is, hi</span>
@@ -44,17 +44,17 @@ export default function Home({ reposositoriesData }: homeProps) {
                 solve the more simple real-life problem with code{' '}
               </Text>
             </Box>
-            <button className="bg-transparent w-80 h-16 border border-white rounded-lg text-xl ">
+            <button className="bg-transparent w-80 h-16 border border-[#ccd6f6] rounded-lg text-xl text-[#ccd6f6]">
               Check out my course
             </button>
           </Section>
 
           <Box>
-            <Box className="md:flex md:flex-col">
+            <Box className="md:flex w-80 md:flex-col">
               <Image
                 src="https://avatars.githubusercontent.com/u/94790993?v=4"
                 alt="profile Photo"
-                className="max-w-[400px] hidden md:block mx-auto rounded-lg grayscale "
+                className="max-w-full object-cover hidden md:block mx-auto rounded-lg grayscale "
               />
             </Box>
           </Box>
@@ -84,7 +84,7 @@ export default function Home({ reposositoriesData }: homeProps) {
       </Box>
 
       <Box className="mt-12 px-8">
-        <Box className="flex flex-col max-w-6xl w-full justify-between py-24 relative mx-auto gap-8">
+        <Box className="flex flex-col md:flex-row max-w-6xl w-full justify-between py-24 relative mx-auto gap-8">
           <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
             <h2 className="text-2xl font-bold text-[#fffffe]">
               Some Things I’ve Built
@@ -96,7 +96,7 @@ export default function Home({ reposositoriesData }: homeProps) {
               emotion you want.
             </span>
           </Box>
-          <Box className="flex items-center md:items-end w-full flex-col">
+          <Box className="flex items-center md:items-end flex-1 flex-col">
             <ProjectCard>
               <h1>a</h1>
             </ProjectCard>
@@ -115,7 +115,7 @@ export default function Home({ reposositoriesData }: homeProps) {
 
       <footer className=" flex flex-col h-[60vh]">
         <Box className="flex justify-between h-full items-center flex-col mx-auto gap-3">
-          <Box className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] gap-8 hidden">
+          <Box className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] md:gap-8 hidden">
             <a
               href=""
               className="font-bold text-base md:visible"
@@ -145,25 +145,40 @@ export default function Home({ reposositoriesData }: homeProps) {
           </Box>
 
           <Section delay={0.3}>
-            <Box className="flex md:flex-col flex-row md:bottom-0 md:left-10 gap-2 md:fixed ">
-              <Box className=" flex md:flex-col justify-center items-center after:content-[''] after:md:w-[1px] after:h-24 after:mx-auto after:bg-[#a8b2d1] gap-6">
-                <Link href="/" className="rounded-md  ">
+            <Box className=" justify-center items-center flex md:flex-col flex-row md:bottom-0 md:left-10 md:fixed ">
+              <Box className=" flex md:flex-col w-full justify-between items-center after:md:content-[''] after:md:w-[1px] after:h-24 after:md:mx-auto after:bg-[#a8b2d1] md:gap-4">
+                <Link
+                  href="/"
+                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                >
                   <FiGithub size={24} color="#a8b2d1" />
                 </Link>
 
-                <Link href="/" className="rounded-md">
+                <Link
+                  href="/"
+                  className="rounded-md  w-[40px] h-[40px] flex items-center justify-center"
+                >
                   <BsInstagram size={24} color="#a8b2d1" />
                 </Link>
 
-                <Link href="/" className="rounded-md ">
+                <Link
+                  href="/"
+                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                >
                   <FiTwitter size={24} color="#a8b2d1" />
                 </Link>
 
-                <Link href="/" className="rounded-md ">
+                <Link
+                  href="/"
+                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                >
                   <FiLinkedin size={24} color="#a8b2d1" />
                 </Link>
 
-                <Link href="/" className="rounded-md md:mb-8">
+                <Link
+                  href="/"
+                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center md:mb-8"
+                >
                   <RiDiscordLine size={24} color="#a8b2d1" />
                 </Link>
               </Box>

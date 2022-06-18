@@ -20,21 +20,7 @@ const Logo = () => {
     <Link href="/">
       <a>
         <LogoBox>
-          <Image
-            src={useColorModeValue(logoImage, logoImageWhite)}
-            width={50}
-            height={50}
-            alt="logo"
-          />
-          <Text
-            color={useColorModeValue('gray.900', 'whiteAlpha.900')}
-            fontFamily="M PLUS Rounder 1c"
-            fontWeight="bold"
-            ml={6}
-            display={{ base: 'none', md: 'initial' }}
-          >
-            Matheus Fontenele
-          </Text>
+          <Image src={logoImageWhite} width={50} height={50} alt="logo" />
         </LogoBox>
       </a>
     </Link>
