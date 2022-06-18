@@ -8,7 +8,7 @@ export default class Document extends NextDocument {
           <meta name="description" content="Matheus's website" />
           <link rel="icon" href="./favicon.ico" />
         </Head>
-        <body className="bg-[#fffffe]">
+        <body className="bg-[#0a192f]">
           {/* 👇 Here's the script */}
           <Main />
           <NextScript />

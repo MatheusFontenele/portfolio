@@ -15,6 +15,7 @@ import {
   Stack
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { BiMenuAltRight } from 'react-icons/bi'
 import ThemeToggleButton from './theme-toggle-button'
 
 const LinkItem = ({ href, path, children }: any) => {
@@ -38,7 +39,7 @@ const NavBar = props => {
   const { path } = props
   return (
     <Box
-      className="bg-[#0f0e17]"
+      className="bg-[#0a192f]"
       as="nav"
       w="100%"
       style={{ backdropFilter: 'blur(10px)' }}
@@ -53,7 +54,7 @@ const NavBar = props => {
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
-        className="max-w-full"
+        className="max-w-full z-10"
       >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
@@ -85,8 +86,8 @@ const NavBar = props => {
             <Menu>
               <MenuButton
                 as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
+                icon={<BiMenuAltRight size={40} />}
+                background="transparent"
                 arial-label="Options"
               />
               <MenuList>

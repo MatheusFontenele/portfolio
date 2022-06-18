@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export const ProjectCard = ({ children }) => (
   <Box
-    w="90%"
+    w="100%"
     h={500}
     mb={6}
     display="flex"
@@ -15,8 +15,9 @@ export const ProjectCard = ({ children }) => (
   >
     <Box
       w="100%"
-      h="50%"
+      h="100%"
       bg="linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)"
+      className="relative"
     ></Box>
     <Box
       w="100%"
@@ -25,12 +26,12 @@ export const ProjectCard = ({ children }) => (
       flexDirection="column"
       alignItems="flex-start"
       p={6}
-      className="gap-4"
+      className="gap-4 absolute"
     >
       <Box className="flex justify-between items-center w-full">
         <a
           href=""
-          className="text-[#0f0e17] text-2xl font-bold hover:underline"
+          className="text-[#ccd6f6] text-2xl font-bold hover:underline"
         >
           E-fic
         </a>

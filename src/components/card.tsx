@@ -44,13 +44,11 @@ export default function Card({ name, description, language }: CardProps) {
       variants={cardVariants}
     >
       <Box
-        className="w-80 h-72 bg-[#0f0e17]"
+        className="w-80 h-72 bg-[#112240] shadow-xl"
         p={6}
         display="flex"
-        justifyContent="space-between"
         flexDirection="column"
         borderRadius={4}
-        boxShadow={useColorModeValue('xl', 'md')}
       >
         <Box className="flex justify-between mb-2">
           <FaRegFolder />{' '}
@@ -70,18 +68,14 @@ export default function Card({ name, description, language }: CardProps) {
           {name}
         </span>
         <span
-          className="my-2 text-sm text-[#a7a9be]"
+          className="my-2 text-sm text-[#8892b0]"
           style={{
             fontFamily: 'Roboto Mono'
           }}
         >
           {description}
         </span>
-        <span
-          style={{
-            color: useColorModeValue('#000', '#FFF')
-          }}
-        >
+        <span className=" flex items-end">
           Language:
           <strong> {language}</strong>
         </span>

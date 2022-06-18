@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import Link from 'next/link'
 import logoImage from '../../assets/Logo.png'
-import logoImageWhite from '../../assets/Math-white.png'
+import logoImageWhite from '/public/Math-white.png'
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -31,7 +31,7 @@ const Logo = () => {
             fontFamily="M PLUS Rounder 1c"
             fontWeight="bold"
             ml={6}
-            display={{base: "none", md: "initial"}}
+            display={{ base: 'none', md: 'initial' }}
           >
             Matheus Fontenele
           </Text>

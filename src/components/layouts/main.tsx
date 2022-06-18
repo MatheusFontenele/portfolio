@@ -5,7 +5,7 @@ import NavBar from '../navbar'
 
 const Main = ({ children, router }: any) => {
   return (
-    <Box as="main" className="bg-[#fffffe]">
+    <Box as="main">
       <Head>
         <title>Home | Matheus Fontenele</title>
       </Head>
