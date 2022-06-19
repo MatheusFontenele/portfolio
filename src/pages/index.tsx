@@ -26,10 +26,10 @@ interface homeProps {
 export default function Home({ reposositoriesData }: homeProps) {
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
-      <Box className=" h-screen md:h-[90vh] px-8 py-12">
-        <Box className="max-w-4xl mx-auto md:justify-between h-full w-full flex flex-col items-center justify-center md:flex-row">
+      <Box className=" h-screen md:h-[90vh] py-12">
+        <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full w-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
-            <Box className="max-w-md mb-20 flex flex-col ">
+            <Box className="mb-20 flex flex-col ">
               <span className="mb-6 font-semibold">Hi, my name is, hi</span>
               <h2 className=" text-4xl text-[#ccd6f6] font-bold">
                 Matheus Oliveira
@@ -45,19 +45,9 @@ export default function Home({ reposositoriesData }: homeProps) {
               </Text>
             </Box>
             <button className="bg-transparent w-80 h-16 border border-[#ccd6f6] rounded-lg text-xl text-[#ccd6f6]">
-              Check out my course
+              Check out my resume
             </button>
           </Section>
-
-          <Box>
-            <Box className="md:flex w-80 md:flex-col">
-              <Image
-                src="https://avatars.githubusercontent.com/u/94790993?v=4"
-                alt="profile Photo"
-                className="max-w-full object-cover hidden md:block mx-auto rounded-lg grayscale "
-              />
-            </Box>
-          </Box>
         </Box>
       </Box>
       <Box className="max-w-6xl mx-auto mt-8 flex flex-col justify-center">
