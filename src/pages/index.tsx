@@ -54,22 +54,30 @@ export default function Home({ reposositoriesData }: homeProps) {
     text: {
       width: 150,
       height: 150,
+
       x: mousePosition.x - 75,
       y: mousePosition.y - 75,
       mixBlendMode: 'difference',
       backgroundColor: 'yellow'
+    },
+    button: {
+      width: 50,
+      height: 50,
+
+      x: mousePosition.x - 25,
+      y: mousePosition.y - 25,
+      mixBlendMode: 'difference',
+      backgroundColor: 'yellow'
     }
   }
-
-  console.log(cursorVariant)
-
   const mouseEnterText = () => setCursorVariant('text')
   const mouseLeaveText = () => setCursorVariant('default')
+  const mouseEnterButton = () => setCursorVariant('button')
 
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
       <motion.div
-        className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none"
+        className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-0 hidden sm:block"
         variants={variants}
         animate={cursorVariant}
       />
@@ -81,7 +89,7 @@ export default function Home({ reposositoriesData }: homeProps) {
               <h2
                 onMouseEnter={mouseEnterText}
                 onMouseLeave={mouseLeaveText}
-                className=" text-4xl text-[#ccd6f6] font-bold"
+                className=" text-4xl text-[#ccd6f6] font-bold w-full"
               >
                 Matheus Oliveira
               </h2>
@@ -125,7 +133,7 @@ export default function Home({ reposositoriesData }: homeProps) {
       </Box>
 
       <Box className="mt-12 px-8">
-        <Box className="flex flex-col md:flex-row max-w-6xl w-full justify-between py-24 relative mx-auto gap-8">
+        <Box className="flex flex-col md:flex-row max-w-6xl w-full justify-between py-24 relative mx-auto gap-8 ">
           <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
             <h2 className="text-2xl font-bold text-[#fffffe]">
               Some Things I’ve Built
@@ -188,12 +196,13 @@ export default function Home({ reposositoriesData }: homeProps) {
           <Section delay={0.3}>
             <Box className=" justify-center items-center flex md:flex-col flex-row md:bottom-0 md:left-10 md:fixed ">
               <Box className=" flex md:flex-col w-full justify-between items-center after:md:content-[''] after:md:w-[1px] after:h-24 after:md:mx-auto after:bg-[#a8b2d1] md:gap-4">
-                <Link
-                  href="/"
+                <motion.a
+                  onMouseEnter={mouseEnterButton}
+                  onMouseLeave={mouseLeaveText}
                   className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
                 >
                   <FiGithub size={24} color="#a8b2d1" />
-                </Link>
+                </motion.a>
 
                 <Link
                   href="/"
