@@ -1,5 +1,6 @@
-import { Box, Image, Text, Link, Button, Icon } from '@chakra-ui/react'
+import { Box, Text, Link } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
+import { motion } from 'framer-motion'
 
 import Section from '../components/sections'
 import { RiDiscordLine } from 'react-icons/ri'
@@ -9,8 +10,8 @@ import { FcLike } from 'react-icons/fc'
 
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
-import logo from '/public/Math-white.png'
 import axios from 'axios'
+import { MouseEvent, useEffect, useState } from 'react'
 
 interface RepoProps {
   id: string
@@ -24,14 +25,64 @@ interface homeProps {
 }
 
 export default function Home({ reposositoriesData }: homeProps) {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  })
+
+  const [cursorVariant, setCursorVariant] = useState('default')
+
+  useEffect(() => {
+    const mouseMove = event => {
+      setMousePosition({
+        x: event.clientX,
+        y: event.clientY
+      })
+    }
+    window.addEventListener('mousemove', mouseMove)
+
+    return () => {
+      window.removeEventListener('mousemove', mouseMove)
+    }
+  }, [])
+
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16
+    },
+    text: {
+      width: 150,
+      height: 150,
+      x: mousePosition.x - 75,
+      y: mousePosition.y - 75,
+      mixBlendMode: 'difference',
+      backgroundColor: 'yellow'
+    }
+  }
+
+  console.log(cursorVariant)
+
+  const mouseEnterText = () => setCursorVariant('text')
+  const mouseLeaveText = () => setCursorVariant('default')
+
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
+      <motion.div
+        className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none"
+        variants={variants}
+        animate={cursorVariant}
+      />
       <Box className=" h-screen md:h-[90vh] py-12">
         <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full w-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
             <Box className="mb-20 flex flex-col ">
               <span className="mb-6 font-semibold">Hi, my name is, hi</span>
-              <h2 className=" text-4xl text-[#ccd6f6] font-bold">
+              <h2
+                onMouseEnter={mouseEnterText}
+                onMouseLeave={mouseLeaveText}
+                className=" text-4xl text-[#ccd6f6] font-bold"
+              >
                 Matheus Oliveira
               </h2>
               <h2 className=" text-4xl mt-2 text-[#8892b0] font-bold mb-6">
