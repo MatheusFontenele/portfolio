@@ -78,18 +78,19 @@ export default function Home({ reposositoriesData }: homeProps) {
     <Box className=" relative md:gap-6 flex flex-col ">
       <motion.div
         className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-0 hidden sm:block"
+        transition={{ type: 'spring', stiffness: 50 }}
         variants={variants}
         animate={cursorVariant}
       />
       <Box className=" h-screen md:h-[90vh] py-12">
-        <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full w-full flex flex-col items-center justify-center md:flex-row">
+        <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
             <Box className="mb-20 flex flex-col ">
               <span className="mb-6 font-semibold">Hi, my name is, hi</span>
               <h2
                 onMouseEnter={mouseEnterText}
                 onMouseLeave={mouseLeaveText}
-                className=" text-4xl text-[#ccd6f6] font-bold w-full"
+                className=" text-4xl text-[#ccd6f6] font-bold w-80"
               >
                 Matheus Oliveira
               </h2>
