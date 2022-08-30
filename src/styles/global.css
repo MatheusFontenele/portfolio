@@ -18,7 +18,7 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background: linear-gradient(174deg, rgba(116,110,217,1) 0%, rgba(86,86,212,1) 25%, rgba(251,36,87,0.9836309523809523) 100%);
+    background: #8892b0;
     border-radius: 10px;
   }
 
