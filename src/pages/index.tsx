@@ -77,7 +77,7 @@ export default function Home({ reposositoriesData }: homeProps) {
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
       <motion.div
-        className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-0 hidden sm:block"
+        className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-40 hidden sm:block"
         transition={{ type: 'spring', stiffness: 100 }}
         variants={variants}
         animate={cursorVariant}
