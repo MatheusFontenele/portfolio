@@ -84,8 +84,6 @@ export default function Home({ reposositoriesData }: homeProps) {
         animate={cursorVariant}
       />
       
-      <Sidebar />
-
       <Box className=" h-screen md:h-[90vh] py-12">
         <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
