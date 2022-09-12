@@ -1,7 +1,7 @@
 export function Sidebar(){
   return(
     <aside className="fixed top-0 z-30 h-full  w-full backdrop-blur-sm">
-      <div className="w-[500px] h-screen flex flex-col bg-[#081325] p-8">
+      <div className="w-[500px] h-screen flex flex-col bg-[#020c1b] p-8">
         <div className="flex flex-1 items-center h-full">
           <div className="flex w-full gap-14">
             <ul className="flex flex-col gap-5">
