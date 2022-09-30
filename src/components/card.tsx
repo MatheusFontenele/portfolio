@@ -27,8 +27,6 @@ interface CardProps {
 }
 export default function Card({ name, description, language }: CardProps) {
   const card = useRef()
-  //data-tilt
-  //data-tilt-reverse="true"
   useEffect(() => {
     VanillaTilt.init('.card', {
       max: 30,
