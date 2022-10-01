@@ -12,7 +12,7 @@ import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
 import axios from 'axios'
 import { MouseEvent, useEffect, useState } from 'react'
-import {Sidebar} from '../components/sidebar'
+import { Sidebar } from '../components/sidebar'
 
 interface RepoProps {
   id: string
@@ -77,13 +77,15 @@ export default function Home({ reposositoriesData }: homeProps) {
 
   return (
     <Box className=" relative md:gap-6 flex flex-col ">
+      {/* bolinha que segue o cursor */}
       <motion.div
         className="bg-[#a8b2d1] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-40 hidden sm:block"
         transition={{ type: 'spring', stiffness: 100 }}
         variants={variants}
         animate={cursorVariant}
       />
-      
+
+      {/* secao de apresentacao */}
       <Box className=" h-screen md:h-[90vh] py-12">
         <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
@@ -112,6 +114,8 @@ export default function Home({ reposositoriesData }: homeProps) {
           </Section>
         </Box>
       </Box>
+
+      {/* secao dos repositorios */}
       <Box className="max-w-6xl mx-auto mt-8 flex flex-col justify-center">
         <Box>
           <Box className="flex flex-col justify-center  items-center w-full my-8">
@@ -135,6 +139,7 @@ export default function Home({ reposositoriesData }: homeProps) {
         </Box>
       </Box>
 
+      {/* secao dos projetos */}
       <Box className="mt-12 px-8">
         <Box className="flex flex-col md:flex-row max-w-6xl w-full justify-between py-24 relative mx-auto gap-8 ">
           <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
@@ -165,6 +170,7 @@ export default function Home({ reposositoriesData }: homeProps) {
         </Box>
       </Box>
 
+      {/* footer */}
       <footer className=" flex flex-col h-[60vh]">
         <Box className="flex justify-between h-full items-center flex-col mx-auto gap-3">
           <Box className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] md:gap-8 hidden">
