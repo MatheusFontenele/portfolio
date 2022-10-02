@@ -56,22 +56,22 @@ const NavBar = props => {
         justifyContent="space-between"
         className="max-w-full p-8 z-10"
       >
-          <button className="flex flex-col gap-1 m-4">
-            <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
-            <div className="w-6 h-[3px] bg-slate-100 rounded-full"></div>
-            <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
-          </button>
-        <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            <Logo />
-          </Heading>
-        </Flex>
+        <button className="flex flex-col gap-1 m-4">
+          <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
+          <div className="w-6 h-[3px] bg-slate-100 rounded-full"></div>
+          <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
+        </button>
 
+        <ThemeToggleButton />
+        <Box ml={2} mb={2} display="inline-block">
+          <Menu></Menu>
+        </Box>
         <Box className="gap-4" flex={1} display="flex" justifyContent="end">
-          <ThemeToggleButton />
-          <Box ml={2} mb={2} display="inline-block">
-            <Menu></Menu>
-          </Box>
+          <Flex align="center">
+            <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+              <Logo />
+            </Heading>
+          </Flex>
         </Box>
       </Box>
     </Box>

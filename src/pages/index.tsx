@@ -1,18 +1,23 @@
-import { Box, Text, Link } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
+import Image from 'next/image'
+
+import { Box, Text, Link } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
-import Section from '../components/sections'
 import { RiDiscordLine } from 'react-icons/ri'
 import { FiGithub, FiTwitter, FiLinkedin } from 'react-icons/fi'
 import { BsInstagram } from 'react-icons/bs'
 import { FcLike } from 'react-icons/fc'
 
+import Section from '../components/sections'
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
+import { Sidebar } from '../components/sidebar'
+
+import Hello from '../../public/hello.svg'
+
 import axios from 'axios'
 import { MouseEvent, useEffect, useState } from 'react'
-import { Sidebar } from '../components/sidebar'
 
 interface RepoProps {
   id: string
@@ -22,10 +27,10 @@ interface RepoProps {
 }
 
 interface homeProps {
-  reposositoriesData: RepoProps[]
+  repositoriesData: RepoProps[]
 }
 
-export default function Home({ reposositoriesData }: homeProps) {
+export default function Home({ repositoriesData }: homeProps) {
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
@@ -85,6 +90,10 @@ export default function Home({ reposositoriesData }: homeProps) {
         animate={cursorVariant}
       />
 
+      <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex justify-center items-center">
+        <Image src={Hello} width={300} height={300} />
+      </div>
+
       {/* secao de apresentacao */}
       <Box className=" h-screen md:h-[90vh] py-12">
         <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
@@ -125,7 +134,7 @@ export default function Home({ reposositoriesData }: homeProps) {
             <span></span>
           </Box>
           <Box className="flex-1 grid md:grid-cols-3 gap-4">
-            {reposositoriesData.map(repo => {
+            {repositoriesData.map(repo => {
               return (
                 <Card
                   key={repo.id}
@@ -140,8 +149,8 @@ export default function Home({ reposositoriesData }: homeProps) {
       </Box>
 
       {/* secao dos projetos */}
-      <Box className="mt-12 px-8">
-        <Box className="flex flex-col md:flex-row max-w-6xl w-full justify-between py-24 relative mx-auto gap-8 ">
+      <Box className="  mt-12 px-8 flex  justify-center">
+        <Box className="flex flex-col relative md:flex-row w-full max-w-5xl justify-between py-24 gap-8 ">
           <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
             <h2 className="text-2xl font-bold text-[#fffffe]">
               Some Things I’ve Built
@@ -255,10 +264,15 @@ export default function Home({ reposositoriesData }: homeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const user = await axios.get('https://api.github.com/users/MatheusFontenele')
   const repositories = await axios.get(
-    'https://api.github.com/users/MatheusFontenele/repos'
+    'https://api.github.com/users/MatheusFontenele/repos',
+    {
+      params: {
+        per_page: 9
+      }
+    }
   )
 
-  const reposositoriesData = repositories.data.map((repo: RepoProps) => {
+  const repositoriesData = repositories.data.map((repo: RepoProps) => {
     return {
       id: repo.id,
       name: repo.name,
@@ -268,6 +282,6 @@ export const getStaticProps: GetStaticProps = async () => {
   })
   const data = user.data
   return {
-    props: { data, reposositoriesData }
+    props: { data, repositoriesData }
   }
 }
