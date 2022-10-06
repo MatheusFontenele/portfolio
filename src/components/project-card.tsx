@@ -1,8 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/react'
-import { AiOutlineArrowRight } from 'react-icons/ai'
 
-export const ProjectCard = ({ children }) => (
+export const ProjectCard = () => (
   <Box
     w="100%"
     mb={6}
