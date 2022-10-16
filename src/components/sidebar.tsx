@@ -23,7 +23,7 @@ export function Sidebar() {
           </div>
         </div>
         <div className="mb-12">
-          {/* <span className="block text-[#8892b0]">Get in touch</span> */}
+          <span className="block text-[#8892b0]">Get in touch</span>
           <span className="border-b pb-1">matheus.fontenele@icloud.com</span>
         </div>
       </div>
