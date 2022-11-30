@@ -6,27 +6,32 @@ import { FaRegFolder } from 'react-icons/fa'
 import { BsGithub } from 'react-icons/bs'
 import { HiExternalLink } from 'react-icons/hi'
 
-const cardVariants: Variants = {
-  offscreen: {
-    y: 100
-  },
-  onscreen: {
-    y: 0,
-    transition: {
-      type: 'spring',
-      bounce: 0.4,
-      duration: 0.8
-    },
-    opacity: 1
-  }
-}
 interface CardProps {
   name: string
   description: string
-  language: string
+  language: string,
+  duration: number
 }
-export default function Card({ name, description, language }: CardProps) {
+
+export default function Card({ name, description, language, duration }: CardProps) {
+  const cardVariants: Variants = {
+    offscreen: {
+      y: 100
+    },
+
+    onscreen: {
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: duration
+      },
+      opacity: 1
+    }
+  }
+
   const card = useRef()
+  
   useEffect(() => {
     VanillaTilt.init('.card', {
       max: 30,

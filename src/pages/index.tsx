@@ -134,13 +134,14 @@ export default function Home({ repositoriesData }: homeProps) {
             <span></span>
           </Box>
           <Box className="flex-1 grid md:grid-cols-3 gap-4">
-            {repositoriesData.map(repo => {
+            {repositoriesData.map((repo, index) => {
               return (
                 <Card
                   key={repo.id}
                   name={repo.name}
                   description={repo.description}
                   language={repo.language}
+                  duration={index}
                 />
               )
             })}
@@ -149,7 +150,7 @@ export default function Home({ repositoriesData }: homeProps) {
       </Box>
 
       {/* secao dos projetos */}
-      <Box className="  mt-12 px-8 flex  justify-center">
+      <Box className="mt-12 px-8 flex  justify-center">
         <Box className="flex flex-col relative md:flex-row w-full max-w-5xl justify-between py-24 gap-8 ">
           <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
             <h2 className="text-2xl font-bold text-[#fffffe]">
