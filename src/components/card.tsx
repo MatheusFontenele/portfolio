@@ -24,12 +24,12 @@ export default function Card({ name, description, language, duration }: CardProp
       transition: {
         type: 'spring',
         bounce: 0.4,
-        duration: duration
+        duration: duration > 3 ? duration / 4 : duration / .5
       },
       opacity: 1
     }
   }
-
+  
   const card = useRef()
   
   useEffect(() => {

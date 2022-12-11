@@ -90,8 +90,15 @@ export default function Home({ repositoriesData }: homeProps) {
         animate={cursorVariant}
       />
 
-      <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex justify-center items-center">
-        <Image src={Hello} width={300} height={300} />
+      <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex flex-col justify-center items-center">
+        <div className="flex-1 flex items-center">
+          <Image src={Hello} width={300} height={300} />
+        </div>
+
+        <div className="w-full flex justify-center items-end">
+          <div className="w-[35px] h-[60px] border-2 border-white rounded-full before:w-[25px] before:h-[25px] before:bg-black">
+          </div>
+        </div>
       </div>
 
       {/* secao de apresentacao */}
@@ -134,7 +141,7 @@ export default function Home({ repositoriesData }: homeProps) {
             <span></span>
           </Box>
           <Box className="flex-1 grid md:grid-cols-3 gap-4">
-            {repositoriesData.map((repo, index) => {
+            {/* {repositoriesData.map((repo, index) => {
               return (
                 <Card
                   key={repo.id}
@@ -144,7 +151,7 @@ export default function Home({ repositoriesData }: homeProps) {
                   duration={index}
                 />
               )
-            })}
+            })} */}
           </Box>
         </Box>
       </Box>
@@ -262,27 +269,27 @@ export default function Home({ repositoriesData }: homeProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const user = await axios.get('https://api.github.com/users/MatheusFontenele')
-  const repositories = await axios.get(
-    'https://api.github.com/users/MatheusFontenele/repos',
-    {
-      params: {
-        per_page: 9
-      }
-    }
-  )
+// export const getStaticProps: GetStaticProps = async () => {
+//   const user = await axios.get('https://api.github.com/users/MatheusFontenele')
+//   const repositories = await axios.get(
+//     'https://api.github.com/users/MatheusFontenele/repos',
+//     {
+//       params: {
+//         per_page: 9
+//       }
+//     }
+//   )
 
-  const repositoriesData = repositories.data.map((repo: RepoProps) => {
-    return {
-      id: repo.id,
-      name: repo.name,
-      description: repo.description,
-      language: repo.language
-    }
-  })
-  const data = user.data
-  return {
-    props: { data, repositoriesData }
-  }
-}
+//   const repositoriesData = repositories.data.map((repo: RepoProps) => {
+//     return {
+//       id: repo.id,
+//       name: repo.name,
+//       description: repo.description,
+//       language: repo.language
+//     }
+//   })
+//   const data = user.data
+//   return {
+//     props: { data, repositoriesData }
+//   }
+// }
