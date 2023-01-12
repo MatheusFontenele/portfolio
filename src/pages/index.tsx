@@ -96,7 +96,8 @@ export default function Home({ repositoriesData }: homeProps) {
         </div>
 
         <div className="w-full flex justify-center items-end">
-          <div className="w-[35px] h-[60px] border-2 border-white rounded-full before:w-[25px] before:h-[25px] before:bg-black">
+          <div className="w-[35px] h-[60px] border-2 border-white rounded-full relative">
+            <div className="absolute w-[3px] h-[10px] bg-white rounded-full mx-[14px] mt-3 animate-bounce "/>
           </div>
         </div>
       </div>
@@ -171,18 +172,10 @@ export default function Home({ repositoriesData }: homeProps) {
             </span>
           </Box>
           <Box className="flex items-center md:items-end flex-1 flex-col">
-            <ProjectCard>
-              <h1>a</h1>
-            </ProjectCard>
-            <ProjectCard>
-              <h1>a</h1>
-            </ProjectCard>
-            <ProjectCard>
-              <h1>a</h1>
-            </ProjectCard>
-            <ProjectCard>
-              <h1>a</h1>
-            </ProjectCard>
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
           </Box>
         </Box>
       </Box>
@@ -270,7 +263,6 @@ export default function Home({ repositoriesData }: homeProps) {
 }
 
 // export const getStaticProps: GetStaticProps = async () => {
-//   const user = await axios.get('https://api.github.com/users/MatheusFontenele')
 //   const repositories = await axios.get(
 //     'https://api.github.com/users/MatheusFontenele/repos',
 //     {
