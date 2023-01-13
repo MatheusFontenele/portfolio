@@ -17,7 +17,8 @@ import { Sidebar } from '../components/sidebar'
 import Hello from '../../public/hello.svg'
 
 import axios from 'axios'
-import { MouseEvent, useEffect, useState } from 'react'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { useFollowPointer } from '../components/Utils/useFollowPointer'
 
 interface RepoProps {
   id: string
@@ -31,49 +32,26 @@ interface homeProps {
 }
 
 export default function Home({ repositoriesData }: homeProps) {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  })
+  const ref = useRef(null);
+  const { x, y } = useFollowPointer(ref);
 
   const [cursorVariant, setCursorVariant] = useState('default')
 
-  useEffect(() => {
-    const mouseMove = event => {
-      setMousePosition({
-        x: event.clientX,
-        y: event.clientY
-      })
-    }
-    window.addEventListener('mousemove', mouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', mouseMove)
-    }
-  }, [])
-
   const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16
-    },
+    default: { x, y },
     text: {
+      x, y,
       width: 150,
       height: 150,
-
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
       mixBlendMode: 'difference',
-      backgroundColor: 'yellow'
+      backgroundColor: '#FFFF00',
     },
     button: {
+      x, y,
       width: 50,
       height: 50,
-
-      x: mousePosition.x - 25,
-      y: mousePosition.y - 25,
       mixBlendMode: 'difference',
-      backgroundColor: 'yellow'
+      backgroundColor: '#FFFF00'
     }
   }
   const mouseEnterText = () => setCursorVariant('text')
@@ -84,8 +62,14 @@ export default function Home({ repositoriesData }: homeProps) {
     <Box className=" relative md:gap-6 flex flex-col ">
       {/* bolinha que segue o cursor */}
       <motion.div
+        ref={ref}
         className="bg-[#8892b0] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-40 hidden sm:block"
-        transition={{ type: 'spring', stiffness: 100 }}
+        transition={{ 
+          type: "spring",
+          damping: 8,
+          stiffness: 80,
+          restDelta: 0.001
+        }}
         variants={variants}
         animate={cursorVariant}
       />

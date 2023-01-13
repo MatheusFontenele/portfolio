@@ -34,19 +34,21 @@ const LinkItem = ({ href, path, children }: any) => {
     </NextLink>
   )
 }
-
-const NavBar = props => {
+//any temporario
+const NavBar = (props: any) => {
   const { path } = props
+  
+  const [menuOpened, setMenuOpened] = useState(false)
 
-  const [menuOpened, setMenuOpened] = useState(true)
+  function openMenu(){
+    setMenuOpened(!menuOpened);
+    console.log(menuOpened);
+  }
   return (
     <Box
       className="bg-[#0a192f]"
       as="nav"
       w="100%"
-      style={{ backdropFilter: 'blur(10px)' }}
-      zIndex={1}
-      position="relative"
       {...props}
     >
       <Box
@@ -54,18 +56,18 @@ const NavBar = props => {
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
-        className="max-w-full p-8 z-10"
+        className="max-w-full p-8"
       >
-        <button className="flex flex-col gap-1 m-4">
+        <button className="flex flex-col gap-1 m-4" onClick={openMenu}>
           <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
           <div className="w-6 h-[3px] bg-slate-100 rounded-full"></div>
           <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
         </button>
 
-        <ThemeToggleButton />
-        <Box ml={2} mb={2} display="inline-block">
+        {/* <ThemeToggleButton /> */}
+        {/* <Box ml={2} mb={2} display="inline-block">
           <Menu></Menu>
-        </Box>
+        </Box> */}
         <Box className="gap-4" flex={1} display="flex" justifyContent="end">
           <Flex align="center">
             <Heading as="h1" size="lg" letterSpacing={'tighter'}>
