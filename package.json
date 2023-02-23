@@ -18,6 +18,7 @@
     "@emotion/styled": "^11.8.1",
     "@react-three/fiber": "^7.0.26",
     "axios": "^0.27.2",
+    "babel-plugin-inline-react-svg": "^2.0.2",
     "framer-motion": "^6.2.8",
     "framer-motion-3d": "^6.2.8",
     "hamburgers": "^1.2.1",
@@ -30,6 +31,7 @@
     "vanilla-tilt": "^1.7.2"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
     "@types/node": "17.0.21",
     "@types/react": "17.0.40",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
