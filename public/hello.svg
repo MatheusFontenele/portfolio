@@ -22,6 +22,6 @@
 								<circle class="line" cx="283.51" cy="262.69" r="60.68" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;" stroke="#a8b2d1" fill="none" stroke-width="41px"></circle>
 							</g>
 							<g id="hello_dot">
-								<circle class="dot" cx="403.17" cy="316.01" r="25.67" data-svg-origin="403.17000007629395 316.00999641418457" style="transform: matrix(1, 0, 0, 1, 0, 0);" fill="#8892b0"></circle>
+								<circle class="dot" cx="403.17" cy="316.01" r="25.67"  style="transform: matrix(1, 0, 0, 1, 0, 0);" fill="#8892b0"></circle>
 							</g>
 						</svg>

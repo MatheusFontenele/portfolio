@@ -2,7 +2,7 @@ import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 
 import { Box, Text, Link } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 import { RiDiscordLine } from 'react-icons/ri'
 import { FiGithub, FiTwitter, FiLinkedin } from 'react-icons/fi'
@@ -14,7 +14,7 @@ import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
 import { Sidebar } from '../components/sidebar'
 
-// import Hello from "../../public/hello.svg"
+import Hello from '../../public/hello.svg'
 
 import axios from 'axios'
 import { MouseEvent, useEffect, useRef, useState } from 'react'
@@ -37,7 +37,7 @@ export default function Home({ repositoriesData }: homeProps) {
 
   const [cursorVariant, setCursorVariant] = useState('default')
 
-  const variants = {
+  const variants: Variants = {
     default: { x, y },
     text: {
       x, y,
@@ -70,29 +70,13 @@ export default function Home({ repositoriesData }: homeProps) {
           stiffness: 80,
           restDelta: 0.001
         }}
-        variants={{
-          default: { x, y },
-          text: {
-            x, y,
-            width: 150,
-            height: 150,
-            mixBlendMode: 'difference',
-            backgroundColor: '#FFFF00',
-          },
-          button: {
-            x, y,
-            width: 50,
-            height: 50,
-            mixBlendMode: 'difference',
-            backgroundColor: '#FFFF00'
-          }
-        }}
+        variants={variants}
         animate={cursorVariant}
       />
 
       <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex flex-col justify-center items-center">
         <div className="flex-1 flex items-center">
-          <Image src="../../public/hello.svg" width={300} height={300} />
+          <Hello />
         </div>
 
         <div className="w-full flex justify-center items-end">
@@ -107,11 +91,11 @@ export default function Home({ repositoriesData }: homeProps) {
         <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
             <Box className="mb-20 flex flex-col ">
-              <span className="mb-6 font-semibold">Hi, my name is, hi</span>
+              <span className="mb-6 font-semibold text-[#8892b0]">Hi, my name is, hi</span>
               <h2
                 onMouseEnter={mouseEnterText}
                 onMouseLeave={mouseLeaveText}
-                className=" text-4xl text-[#ccd6f6] font-bold w-80"
+                className=" text-4xl text-[#ccd6f6] font-bold w-80 "
               >
                 Matheus Oliveira
               </h2>
@@ -200,7 +184,7 @@ export default function Home({ repositoriesData }: homeProps) {
             <span className="text-[#8892b0] font-semibold">
               Thanks for scrolling.
             </span>
-            <h2 className="text-4xl font-semibold my-3">Get In Touch</h2>
+            <h2 className="text-4xl font-semibold my-3 text-[#ccd6f6]">Get In Touch</h2>
             <span className="text-[#8892b0] text-lg ">
               I'm looking for new opportunities at the moment, my inbox is
               always open. If you have a question or just want to say hi, I will
@@ -252,7 +236,7 @@ export default function Home({ repositoriesData }: homeProps) {
                 </Link>
               </Box>
             </Box>
-            <span className="flex items-center gap-1 justify-center text-[#8892b0]">
+            <span className="flex items-center gap-1 justify-center text-[#8892b0] mb-8">
               Build with <FcLike /> by Matheus
             </span>
           </Section>

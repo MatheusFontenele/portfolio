@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { FaRegFolder } from 'react-icons/fa'
 import { BsGithub } from 'react-icons/bs'
-import { HiExternalLink } from 'react-icons/hi'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 
 interface CardProps {
   name: string
@@ -43,9 +43,9 @@ export default function Card({ name, description, language, duration }: CardProp
         borderRadius={4}
       >
         <Box className="flex justify-between mb-2">
-          <FaRegFolder />{' '}
+          <FaRegFolder color='white' />{' '}
           <Box className="flex justify-between gap-2 ">
-            <BsGithub /> <HiExternalLink />
+            <BsGithub color='white' /> <FaExternalLinkAlt color='white' />
           </Box>
         </Box>
         <span
@@ -67,9 +67,9 @@ export default function Card({ name, description, language, duration }: CardProp
         >
           {description}
         </span>
-        <span className=" flex items-end">
+        <span className=" flex items-end text-white">
           Language:
-          <strong> {language}</strong>
+          <strong>{language}</strong>
         </span>
       </Box>
     </motion.div>

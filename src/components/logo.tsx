@@ -17,7 +17,6 @@ const Logo = () => {
     <Link href="/">
       <a>
         <LogoBox>
-          <Image src='/public/Math-white.png' width={50} height={50} alt="logo" />
         </LogoBox>
       </a>
     </Link>
