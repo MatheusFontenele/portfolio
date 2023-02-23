@@ -75,11 +75,11 @@ export default function Home({ repositoriesData }: homeProps) {
       />
 
       <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex flex-col justify-center items-center">
-        <div className="flex-1 flex items-center">
+        <div className="flex-1 flex items-center max-w-xs">
           <Hello />
         </div>
 
-        <div className="w-full flex justify-center items-end">
+        <div className="w-full hidden md:flex justify-center items-end">
           <div className="w-[35px] h-[60px] border-2 border-white rounded-full relative">
             <div className="absolute w-[3px] h-[10px] bg-white rounded-full mx-[14px] mt-3 animate-bounce "/>
           </div>
