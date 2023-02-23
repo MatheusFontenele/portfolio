@@ -1,7 +1,5 @@
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
-import { useEffect, useRef } from 'react'
-import VanillaTilt from 'vanilla-tilt'
 import { FaRegFolder } from 'react-icons/fa'
 import { BsGithub } from 'react-icons/bs'
 import { HiExternalLink } from 'react-icons/hi'
@@ -29,15 +27,6 @@ export default function Card({ name, description, language, duration }: CardProp
       opacity: 1
     }
   }
-  
-  const card = useRef()
-  
-  useEffect(() => {
-    VanillaTilt.init('.card', {
-      max: 30,
-      speed: 400
-    })
-  }, [])
 
   return (
     <motion.div

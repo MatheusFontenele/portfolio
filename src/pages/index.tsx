@@ -14,7 +14,7 @@ import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
 import { Sidebar } from '../components/sidebar'
 
-import Hello from '../../public/hello.svg'
+// import Hello from "../../public/hello.svg"
 
 import axios from 'axios'
 import { MouseEvent, useEffect, useRef, useState } from 'react'
@@ -70,13 +70,29 @@ export default function Home({ repositoriesData }: homeProps) {
           stiffness: 80,
           restDelta: 0.001
         }}
-        variants={variants}
+        variants={{
+          default: { x, y },
+          text: {
+            x, y,
+            width: 150,
+            height: 150,
+            mixBlendMode: 'difference',
+            backgroundColor: '#FFFF00',
+          },
+          button: {
+            x, y,
+            width: 50,
+            height: 50,
+            mixBlendMode: 'difference',
+            backgroundColor: '#FFFF00'
+          }
+        }}
         animate={cursorVariant}
       />
 
       <div className="h-[70vh] md:h-[80vh] mx-auto max-w-4xl flex flex-col justify-center items-center">
         <div className="flex-1 flex items-center">
-          <Image src={Hello} width={300} height={300} />
+          <Image src="../../public/hello.svg" width={300} height={300} />
         </div>
 
         <div className="w-full flex justify-center items-end">
@@ -126,7 +142,7 @@ export default function Home({ repositoriesData }: homeProps) {
             <span></span>
           </Box>
           <Box className="flex-1 grid md:grid-cols-3 gap-4">
-            {/* {repositoriesData.map((repo, index) => {
+            {repositoriesData.map((repo, index) => {
               return (
                 <Card
                   key={repo.id}
@@ -136,7 +152,7 @@ export default function Home({ repositoriesData }: homeProps) {
                   duration={index}
                 />
               )
-            })} */}
+            })}
           </Box>
         </Box>
       </Box>
@@ -246,26 +262,26 @@ export default function Home({ repositoriesData }: homeProps) {
   )
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const repositories = await axios.get(
-//     'https://api.github.com/users/MatheusFontenele/repos',
-//     {
-//       params: {
-//         per_page: 9
-//       }
-//     }
-//   )
+export const getStaticProps: GetStaticProps = async () => {
+  const repositories = await axios.get(
+    'https://api.github.com/users/MatheusFontenele/repos',
+    {
+      params: {
+        per_page: 9
+      }
+    }
+  )
 
-//   const repositoriesData = repositories.data.map((repo: RepoProps) => {
-//     return {
-//       id: repo.id,
-//       name: repo.name,
-//       description: repo.description,
-//       language: repo.language
-//     }
-//   })
-//   const data = user.data
-//   return {
-//     props: { data, repositoriesData }
-//   }
-// }
+  const repositoriesData = repositories.data.map((repo: RepoProps) => {
+    return {
+      id: repo.id,
+      name: repo.name,
+      description: repo.description,
+      language: repo.language
+    }
+  })
+  // const data = user.data
+  return {
+    props: { repositoriesData }
+  }
+}
