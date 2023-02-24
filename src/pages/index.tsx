@@ -265,20 +265,14 @@ export default function Home({ repositoriesData }: homeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const repositories = {data: [{
-    "id": 508085831,
-    "name": "podcastr",
-    "description": "",
-    "language": "TypeScript",
-  }]}
-  // await axios.get(
-  //   'https://api.github.com/users/MatheusFontenele/repos',
-  //   {
-  //     params: {
-  //       per_page: 9
-  //     }
-  //   }
-  // )
+  const repositories = await axios.get(
+    'https://api.github.com/users/MatheusFontenele/repos',
+    {
+      params: {
+        per_page: 9
+      }
+    }
+  )
 
   const repositoriesData = repositories.data.map((repo: RepoProps) => {
     return {
