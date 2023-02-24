@@ -59,7 +59,7 @@ export default function Home({ repositoriesData }: homeProps) {
   const mouseEnterButton = () => setCursorVariant('button')
 
   return (
-    <Box className=" relative md:gap-6 flex flex-col ">
+    <div className=" relative md:gap-6 flex flex-col ">
       {/* bolinha que segue o cursor */}
       <motion.div
         ref={ref}
@@ -87,10 +87,10 @@ export default function Home({ repositoriesData }: homeProps) {
       </div>
 
       {/* secao de apresentacao */}
-      <Box className=" h-screen md:h-[90vh] py-12">
-        <Box className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
+      <div className=" h-screen md:h-[90vh] py-12">
+        <div className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
-            <Box className="mb-20 flex flex-col ">
+            <div className="mb-20 flex flex-col ">
               <span className="mb-6 font-semibold text-[#8892b0]">Hi, my name is, hi</span>
               <h2
                 onMouseEnter={mouseEnterText}
@@ -108,24 +108,24 @@ export default function Home({ repositoriesData }: homeProps) {
                 involving code lines, always looking improve my knowledge to
                 solve the more simple real-life problem with code{' '}
               </Text>
-            </Box>
+            </div>
             <button className="bg-transparent w-80 h-16 border border-[#ccd6f6] rounded-lg text-xl text-[#ccd6f6]">
               Check out my resume
             </button>
           </Section>
-        </Box>
-      </Box>
+        </div>
+      </div>
 
       {/* secao dos repositorios */}
-      <Box className="max-w-6xl mx-auto mt-8 flex flex-col justify-center">
-        <Box>
-          <Box className="flex flex-col justify-center  items-center w-full my-8">
+      <div className="max-w-6xl mx-auto mt-8 flex flex-col justify-center">
+        <div>
+          <div className="flex flex-col justify-center items-center w-full my-8">
             <h2 className="text-[#ccd6f6] font-bold text-2xl mb-8">
               Other Noteworthy Projects
             </h2>
             <span></span>
-          </Box>
-          <Box className="flex-1 grid md:grid-cols-3 gap-4">
+          </div>
+          <div className="flex-1 grid md:grid-cols-3 gap-4">
             {repositoriesData.map((repo, index) => {
               return (
                 <Card
@@ -137,14 +137,20 @@ export default function Home({ repositoriesData }: homeProps) {
                 />
               )
             })}
-          </Box>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </div>
 
       {/* secao dos projetos */}
-      <Box className="mt-12 px-8 flex  justify-center">
-        <Box className="flex flex-col relative md:flex-row w-full max-w-5xl justify-between py-24 gap-8 ">
-          <Box className="flex max-w-md h-full md:sticky md:top-16 flex-col gap-4">
+      <div className="mt-12 px-8 flex relative items-center justify-center flex-col">
+        <div className="flex flex-col justify-center items-center w-full my-8">
+          <h2 className="text-[#ccd6f6] font-bold text-2xl">
+            Main Projects
+          </h2>
+          <span></span>
+        </div>
+        <div className="flex flex-col relative md:flex-row w-full max-w-5xl justify-between py-16 gap-8 ">
+          <div className="flex max-w-md h-40 md:sticky md:top-8 flex-col gap-4">
             <h2 className="text-2xl font-bold text-[#fffffe]">
               Some Things I’ve Built
             </h2>
@@ -154,20 +160,20 @@ export default function Home({ repositoriesData }: homeProps) {
               will resonate with your target audience and give off the vibe &
               emotion you want.
             </span>
-          </Box>
-          <Box className="flex items-center md:items-end flex-1 flex-col">
+          </div>
+          <div className="flex items-center md:items-end flex-1 flex-col">
             <ProjectCard />
             <ProjectCard />
             <ProjectCard />
             <ProjectCard />
-          </Box>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </div>
 
       {/* footer */}
       <footer className=" flex flex-col h-[60vh]">
-        <Box className="flex justify-between h-full items-center flex-col mx-auto gap-3">
-          <Box className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] md:gap-8 hidden">
+        <div className="flex justify-between h-full items-center flex-col mx-auto gap-3">
+          <div className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] md:gap-8 hidden">
             <a
               href=""
               className="font-bold text-base md:visible"
@@ -178,9 +184,9 @@ export default function Home({ repositoriesData }: homeProps) {
             >
               matheus.fontenele@icloud.com
             </a>
-          </Box>
+          </div>
 
-          <Box className="text-center items-center max-w-md flex flex-col px-6">
+          <div className="text-center items-center max-w-md flex flex-col px-6">
             <span className="text-[#8892b0] font-semibold">
               Thanks for scrolling.
             </span>
@@ -194,55 +200,55 @@ export default function Home({ repositoriesData }: homeProps) {
             <button className="h-12 w-40 border mt-12 font-semibold text-[#a8b2d1] border-[#a8b2d1] rounded-lg">
               Say hi
             </button>
-          </Box>
+          </div>
 
           <Section delay={0.3}>
-            <Box className=" justify-center items-center flex md:flex-col flex-row md:bottom-0 md:left-10 md:fixed ">
-              <Box className=" flex md:flex-col w-full justify-between items-center after:md:content-[''] after:md:w-[1px] after:h-24 after:md:mx-auto after:bg-[#a8b2d1] md:gap-4">
+            <div className=" justify-center items-center flex md:flex-col flex-row md:bottom-0 md:left-10 md:fixed ">
+              <div className=" flex md:flex-col w-full justify-between items-center after:md:content-[''] after:md:w-[1px] after:h-24 after:md:mx-auto after:bg-[#a8b2d1] md:gap-4">
                 <motion.a
                   onMouseEnter={mouseEnterButton}
                   onMouseLeave={mouseLeaveText}
-                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
                 >
                   <FiGithub size={24} color="#a8b2d1" />
                 </motion.a>
 
                 <Link
                   href="/"
-                  className="rounded-md  w-[40px] h-[40px] flex items-center justify-center"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
                 >
                   <BsInstagram size={24} color="#a8b2d1" />
                 </Link>
 
                 <Link
                   href="/"
-                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
                 >
                   <FiTwitter size={24} color="#a8b2d1" />
                 </Link>
 
                 <Link
                   href="/"
-                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
                 >
                   <FiLinkedin size={24} color="#a8b2d1" />
                 </Link>
 
                 <Link
                   href="/"
-                  className="rounded-md   w-[40px] h-[40px] flex items-center justify-center md:mb-8"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center md:mb-8"
                 >
                   <RiDiscordLine size={24} color="#a8b2d1" />
                 </Link>
-              </Box>
-            </Box>
+              </div>
+            </div>
             <span className="flex items-center gap-1 justify-center text-[#8892b0] mb-8">
               Build with <FcLike /> by Matheus
             </span>
           </Section>
-        </Box>
+        </div>
       </footer>
-    </Box>
+    </div>
   )
 }
 
