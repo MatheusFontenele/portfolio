@@ -21,7 +21,7 @@ import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { useFollowPointer } from '../components/Utils/useFollowPointer'
 
 interface RepoProps {
-  id: string
+  id: number
   name: string
   description: string
   language: string
@@ -208,38 +208,50 @@ export default function Home({ repositoriesData }: homeProps) {
                 <motion.a
                   onMouseEnter={mouseEnterButton}
                   onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer "
+                  href='https://github.com/MatheusFontenele'
+                  target="_blank"
                 >
                   <FiGithub size={24} color="#a8b2d1" />
                 </motion.a>
 
-                <Link
-                  href="/"
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
+                <motion.a
+                  onMouseEnter={mouseEnterButton}
+                  onMouseLeave={mouseLeaveText}
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
+                  href='https://www.instagram.com/etham.fontenele/'
+                  target="_blank"
                 >
                   <BsInstagram size={24} color="#a8b2d1" />
-                </Link>
+                </motion.a>
 
-                <Link
-                  href="/"
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
+                <motion.a
+                  onMouseEnter={mouseEnterButton}
+                  onMouseLeave={mouseLeaveText}
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
+                  href='https://twitter.com/_ethamo'
+                  target="_blank"
                 >
                   <FiTwitter size={24} color="#a8b2d1" />
-                </Link>
+                </motion.a>
 
-                <Link
-                  href="/"
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center"
+                <motion.a
+                  onMouseEnter={mouseEnterButton}
+                  onMouseLeave={mouseLeaveText}
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
+                  href='https://www.linkedin.com/in/matheus-fontenele-7433aa194/'
+                  target="_blank"
                 >
                   <FiLinkedin size={24} color="#a8b2d1" />
-                </Link>
+                </motion.a>
 
-                <Link
-                  href="/"
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center md:mb-8"
+                <motion.a
+                  onMouseEnter={mouseEnterButton}
+                  onMouseLeave={mouseLeaveText}
+                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
                 >
                   <RiDiscordLine size={24} color="#a8b2d1" />
-                </Link>
+                </motion.a>
               </div>
             </div>
             <span className="flex items-center gap-1 justify-center text-[#8892b0] mb-8">
@@ -253,14 +265,20 @@ export default function Home({ repositoriesData }: homeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const repositories = await axios.get(
-    'https://api.github.com/users/MatheusFontenele/repos',
-    {
-      params: {
-        per_page: 9
-      }
-    }
-  )
+  const repositories = {data: [{
+    "id": 508085831,
+    "name": "podcastr",
+    "description": "",
+    "language": "TypeScript",
+  }]}
+  // await axios.get(
+  //   'https://api.github.com/users/MatheusFontenele/repos',
+  //   {
+  //     params: {
+  //       per_page: 9
+  //     }
+  //   }
+  // )
 
   const repositoriesData = repositories.data.map((repo: RepoProps) => {
     return {
