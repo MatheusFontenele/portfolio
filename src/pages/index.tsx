@@ -1,7 +1,4 @@
 import type { GetStaticProps } from 'next'
-import Image from 'next/image'
-
-import { Box, Text, Link } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 
 import { RiDiscordLine } from 'react-icons/ri'
@@ -12,13 +9,13 @@ import { FcLike } from 'react-icons/fc'
 import Section from '../components/sections'
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
-import { Sidebar } from '../components/sidebar'
 
 import Hello from '../../public/hello.svg'
 
 import axios from 'axios'
-import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useFollowPointer } from '../components/Utils/useFollowPointer'
+import { SocialButton } from '../components/social-button'
 
 interface RepoProps {
   id: number
@@ -54,8 +51,16 @@ export default function Home({ repositoriesData }: homeProps) {
       backgroundColor: '#FFFF00'
     }
   }
+
+  const transitionConfig = { 
+    type: "spring",
+    damping: 8,
+    stiffness: 80,
+    restDelta: 0.001
+  }
+
   const mouseEnterText = () => setCursorVariant('text')
-  const mouseLeaveText = () => setCursorVariant('default')
+  const mouseLeave = () => setCursorVariant('default')
   const mouseEnterButton = () => setCursorVariant('button')
 
   return (
@@ -64,12 +69,7 @@ export default function Home({ repositoriesData }: homeProps) {
       <motion.div
         ref={ref}
         className="bg-[#8892b0] w-8 h-8 rounded-full fixed top-0 left-0 pointer-events-none z-40 hidden sm:block"
-        transition={{ 
-          type: "spring",
-          damping: 8,
-          stiffness: 80,
-          restDelta: 0.001
-        }}
+        transition={transitionConfig}
         variants={variants}
         animate={cursorVariant}
       />
@@ -79,37 +79,42 @@ export default function Home({ repositoriesData }: homeProps) {
           <Hello />
         </div>
 
-        <div className="w-full hidden md:flex justify-center items-end">
+        <motion.div
+          initial={{ y: 25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="w-full hidden md:flex justify-center items-end"
+        >
           <div className="w-[35px] h-[60px] border-2 border-white rounded-full relative">
             <div className="absolute w-[3px] h-[10px] bg-white rounded-full mx-[14px] mt-3 animate-bounce "/>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* secao de apresentacao */}
-      <div className=" h-screen md:h-[90vh] py-12">
-        <div className="max-w-4xl sm:px-24 lg:px-8 px-8  mx-auto md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
+      <div className="h-screen md:h-[60vh] mx-auto p-8 before:content-[''] before:p-4 md:before:content-['About'] before:text-[#8892b0]/5 before:absolute before:text-9xl before:font-bold">
+        <div className="sm:px-24 md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
           <Section delay={0.2}>
-            <div className="mb-20 flex flex-col ">
+            <div className="mb-20 flex flex-col max-w-4xl">
               <span className="mb-6 font-semibold text-[#8892b0]">Hi, my name is, hi</span>
               <h2
                 onMouseEnter={mouseEnterText}
-                onMouseLeave={mouseLeaveText}
-                className=" text-4xl text-[#ccd6f6] font-bold w-80 "
+                onMouseLeave={mouseLeave}
+                className=" text-4xl text-[#ccd6f6] font-bold w-80"
               >
                 Matheus Oliveira
               </h2>
               <h2 className=" text-4xl mt-2 text-[#8892b0] font-bold mb-6">
                 I build things for the web.
               </h2>
-              <Text fontFamily="Roboto Mono" className="text-lg text-[#8892b0]">
+              <span className="text-lg text-[#8892b0]" style={{fontFamily: "Roboto Mono"}}>
                 Matheus is someone who is passionate about technology, sports
                 and history. Someone who is fascinated to learn new things
                 involving code lines, always looking improve my knowledge to
                 solve the more simple real-life problem with code{' '}
-              </Text>
+              </span>
             </div>
-            <button className="bg-transparent w-80 h-16 border border-[#ccd6f6] rounded-lg text-xl text-[#ccd6f6]">
+            <button className="bg-transparent w-52 h-12 border border-[#ccd6f6] rounded text-base text-[#ccd6f6]">
               Check out my resume
             </button>
           </Section>
@@ -117,7 +122,7 @@ export default function Home({ repositoriesData }: homeProps) {
       </div>
 
       {/* secao dos repositorios */}
-      <div className="max-w-6xl mx-auto mt-8 flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto mt-8 flex flex-col justify-center px-8">
         <div>
           <div className="flex flex-col justify-center items-center w-full my-8">
             <h2 className="text-[#ccd6f6] font-bold text-2xl mb-8">
@@ -125,7 +130,7 @@ export default function Home({ repositoriesData }: homeProps) {
             </h2>
             <span></span>
           </div>
-          <div className="flex-1 grid md:grid-cols-3 gap-4">
+          <div className="flex-1 flex justify-center flex-wrap gap-5">
             {repositoriesData.map((repo, index) => {
               return (
                 <Card
@@ -174,16 +179,15 @@ export default function Home({ repositoriesData }: homeProps) {
       <footer className=" flex flex-col h-[60vh]">
         <div className="flex justify-between h-full items-center flex-col mx-auto gap-3">
           <div className="text-[#a8b2d1] md:fixed right-10 bottom-0 md:flex items-center flex-col after:content-[''] after:md:w-[1px] after:md:h-24 after:mx-auto after:bg-[#a8b2d1] md:gap-8 hidden">
-            <a
+            <motion.a
+              initial={{ y: 25, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               href=""
-              className="font-bold text-base md:visible"
-              style={{
-                writingMode: 'vertical-lr',
-                textOrientation: 'mixed'
-              }}
+              className="font-bold text-base md:visible [writing-mode:vertical-lr]"
             >
               matheus.fontenele@icloud.com
-            </a>
+            </motion.a>
           </div>
 
           <div className="text-center items-center max-w-md flex flex-col px-6">
@@ -202,62 +206,54 @@ export default function Home({ repositoriesData }: homeProps) {
             </button>
           </div>
 
-          <Section delay={0.3}>
+          <div>
             <div className=" justify-center items-center flex md:flex-col flex-row md:bottom-0 md:left-10 md:fixed ">
               <div className=" flex md:flex-col w-full justify-between items-center after:md:content-[''] after:md:w-[1px] after:h-24 after:md:mx-auto after:bg-[#a8b2d1] md:gap-4">
-                <motion.a
-                  onMouseEnter={mouseEnterButton}
-                  onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer "
-                  href='https://github.com/MatheusFontenele'
-                  target="_blank"
+                <SocialButton
+                  mouseEnterButton={mouseEnterButton}
+                  mouseLeave={mouseLeave}
+                  delay={0.3}
                 >
                   <FiGithub size={24} color="#a8b2d1" />
-                </motion.a>
+                </SocialButton>
 
-                <motion.a
-                  onMouseEnter={mouseEnterButton}
-                  onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
-                  href='https://www.instagram.com/etham.fontenele/'
-                  target="_blank"
+                <SocialButton
+                  mouseEnterButton={mouseEnterButton}
+                  mouseLeave={mouseLeave}
+                  delay={0.4}
                 >
                   <BsInstagram size={24} color="#a8b2d1" />
-                </motion.a>
+                </SocialButton>
 
-                <motion.a
-                  onMouseEnter={mouseEnterButton}
-                  onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
-                  href='https://twitter.com/_ethamo'
-                  target="_blank"
+                <SocialButton
+                  mouseEnterButton={mouseEnterButton}
+                  mouseLeave={mouseLeave}
+                  delay={0.5}
                 >
                   <FiTwitter size={24} color="#a8b2d1" />
-                </motion.a>
+                </SocialButton>
 
-                <motion.a
-                  onMouseEnter={mouseEnterButton}
-                  onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
-                  href='https://www.linkedin.com/in/matheus-fontenele-7433aa194/'
-                  target="_blank"
+                <SocialButton
+                  mouseEnterButton={mouseEnterButton}
+                  mouseLeave={mouseLeave}
+                  delay={0.6}
                 >
                   <FiLinkedin size={24} color="#a8b2d1" />
-                </motion.a>
-
-                <motion.a
-                  onMouseEnter={mouseEnterButton}
-                  onMouseLeave={mouseLeaveText}
-                  className="rounded-md w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
+                </SocialButton>
+                
+                <SocialButton
+                  mouseEnterButton={mouseEnterButton}
+                  mouseLeave={mouseLeave}
+                  delay={0.7}
                 >
                   <RiDiscordLine size={24} color="#a8b2d1" />
-                </motion.a>
+                </SocialButton>
               </div>
             </div>
             <span className="flex items-center gap-1 justify-center text-[#8892b0] mb-8">
               Build with <FcLike /> by Matheus
             </span>
-          </Section>
+          </div>
         </div>
       </footer>
     </div>

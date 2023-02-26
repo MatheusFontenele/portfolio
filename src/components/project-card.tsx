@@ -1,21 +1,14 @@
 import { Box } from '@chakra-ui/react'
-import { useColorModeValue } from '@chakra-ui/react'
 
 export const ProjectCard = () => (
-  <Box
-    w="100%"
-    mb={6}
-    display="flex"
-    flexDirection="column"
-    borderRadius={4}
-    boxShadow={useColorModeValue('xl', 'md')}
-    className="h-[500px] relative"
+  <div
+    className="h-[500px] relative flex flex-col rounded w-full mb-6 overflow-hidden"
   >
     <Box
       w="100%"
       h="100%"
       bg="linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)"
-      className="relative"
+      className="relative "
     ></Box>
     <Box
       display="flex"
@@ -66,5 +59,5 @@ export const ProjectCard = () => (
         </Box>
       </Box>
     </Box>
-  </Box>
+  </div>
 )
