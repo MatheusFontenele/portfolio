@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@headlessui/react": "^1.7.13",
     "@react-three/fiber": "^7.0.26",
     "axios": "^0.27.2",
     "babel-plugin-inline-react-svg": "^2.0.2",
