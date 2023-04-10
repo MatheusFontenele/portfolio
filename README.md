@@ -6,7 +6,7 @@
   <!-- <a href="https://nexttemplateapp.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Next Template App</h1>
+<h1 align="center">Portfolio</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/next-template-app?color=56BEB8">
