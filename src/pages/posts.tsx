@@ -4,7 +4,6 @@ import { Fragment, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 
 function Posts() {
-  const [selected, setSelected] = useState(people[0])
   const [query, setQuery] = useState('')
 
   return (
