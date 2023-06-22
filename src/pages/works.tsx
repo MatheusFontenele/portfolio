@@ -1,5 +1,9 @@
 function Works() {
-  return <h1>Works</h1>
+  return (
+    <div className="w-screen h-screen">
+      <h1>Works</h1>
+    </div>
+  )
 }
 
 export default Works
