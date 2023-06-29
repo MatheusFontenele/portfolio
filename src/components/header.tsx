@@ -28,11 +28,11 @@ export const Header = (props: any) => {
       <div
         className="max-w-full p-8 flex flex-wrap items-center justify-between"
       >
-        <button className="flex flex-col gap-1 m-4" onClick={openMenu}>
+{/*         <button className="flex flex-col gap-1 m-4" onClick={openMenu}>
           <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
           <div className="w-6 h-[3px] bg-slate-100 rounded-full"></div>
           <div className="w-4 h-[3px] mx-auto bg-slate-100 rounded-sm"></div>
-        </button>
+        </button> */}
 
         <div className="gap-4 flex flex-1 justify-end">
           <div className='flex items-center'>
