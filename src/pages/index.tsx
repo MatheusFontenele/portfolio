@@ -114,9 +114,9 @@ export default function Home({ repositoriesData }: homeProps) {
                 solve the more simple real-life problem with code{' '}
               </span>
             </div>
-            <button className="bg-transparent w-52 h-12 border border-[#ccd6f6] rounded text-base text-[#ccd6f6]">
+            <a href="#" className="bg-transparent w-52 h-12 border border-[#ccd6f6] rounded text-base text-[#ccd6f6]">
               Check out my resume
-            </button>
+            </a>
           </Section>
         </div>
       </div>
