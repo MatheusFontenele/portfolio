@@ -49,6 +49,11 @@ export default function Home({ repositoriesData }: homeProps) {
       height: 50,
       mixBlendMode: 'difference',
       backgroundColor: '#FFFF00'
+    },
+    resume: {
+      x, y,
+      width: 0,
+      height: 0,
     }
   }
 
@@ -62,6 +67,7 @@ export default function Home({ repositoriesData }: homeProps) {
   const mouseEnterText = () => setCursorVariant('text')
   const mouseLeave = () => setCursorVariant('default')
   const mouseEnterButton = () => setCursorVariant('button')
+  const mouseEnterResume = () => setCursorVariant('resume')
 
   return (
     <div className=" relative md:gap-6 flex flex-col ">
@@ -114,8 +120,12 @@ export default function Home({ repositoriesData }: homeProps) {
                 solve the more simple real-life problem with code{' '}
               </span>
             </div>
-            <a href="#" className="bg-transparent w-52 h-12 border border-[#ccd6f6] rounded text-base text-[#ccd6f6]">
-              Check out my resume
+            <a
+              onMouseEnter={mouseEnterResume}
+              onMouseLeave={mouseLeave}
+              className="bg-transparent p-4 w-52 h-12 border-2 border-[#ccd6f6] rounded text-base text-[#ccd6f6] cursor-pointer hover:bg-[#8892b0] hover:text-white font-semibold hover:border-white transition-all ease-in-out duration-300"
+            >
+              <span>Check out my resume</span>
             </a>
           </Section>
         </div>
