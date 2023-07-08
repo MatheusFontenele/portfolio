@@ -15,7 +15,6 @@ import Hello from '../../public/hello.svg'
 import axios from 'axios'
 import { useRef, useState } from 'react'
 import { useFollowPointer } from '../components/Utils/useFollowPointer'
-import { SocialButton } from '../components/social-button'
 
 interface RepoProps {
   id: number
