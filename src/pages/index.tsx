@@ -9,6 +9,7 @@ import { FcLike } from 'react-icons/fc'
 import Section from '../components/sections'
 import Card from '../components/card'
 import { ProjectCard } from '../components/project-card'
+import { SocialButton } from '../components/social-button'
 
 import Hello from '../../public/hello.svg'
 
