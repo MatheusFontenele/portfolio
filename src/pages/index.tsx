@@ -16,6 +16,7 @@ import Hello from '../../public/hello.svg'
 import axios from 'axios'
 import { useRef, useState } from 'react'
 import { useFollowPointer } from '../components/Utils/useFollowPointer'
+import Button from '../components/button'
 
 interface RepoProps {
   id: number
@@ -120,13 +121,11 @@ export default function Home({ repositoriesData }: homeProps) {
                 solve the more simple real-life problem with code{' '}
               </span>
             </div>
-            <a
+            <Button 
               onMouseEnter={mouseEnterResume}
               onMouseLeave={mouseLeave}
-              className="bg-transparent p-4 w-52 h-12 border-2 border-[#ccd6f6] rounded text-base text-[#ccd6f6] cursor-pointer hover:bg-[#8892b0] hover:text-white font-semibold hover:border-white transition-all ease-in-out duration-300"
-            >
-              <span>Check out my resume</span>
-            </a>
+              text="Check out my resume"
+            />
           </Section>
         </div>
       </div>
