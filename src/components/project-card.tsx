@@ -38,23 +38,20 @@ export const ProjectCard = () => (
       <Box className="flex justify-end flex-col gap-4">
         <span className="text-[#0f0e17] font-bold text-xl">Tecs</span>
         <Box className="flex flex-wrap gap-1">
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
+          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[4px] rounded">
             Typescript
           </span>
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
+          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[4px] rounded">
             ReactJS
           </span>
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
+          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[4px] rounded">
             NodeJS
           </span>
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
+          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[4px] rounded">
             Postgres
           </span>
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
+          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[4px] rounded">
             tailwind
-          </span>
-          <span className="bg-[#ff8906] text-[#fffffe] font-bold text-sm px-3 py-[10px] rounded-sm">
-            Typescript
           </span>
         </Box>
       </Box>

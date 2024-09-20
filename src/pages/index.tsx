@@ -17,6 +17,9 @@ import axios from 'axios'
 import { useRef, useState } from 'react'
 import { useFollowPointer } from '../components/Utils/useFollowPointer'
 import Button from '../components/button'
+import Presentation from '../sections/presentation'
+import Repositories from '../sections/repositories'
+import Projects from '../sections/projects'
 
 interface RepoProps {
   id: number
@@ -71,7 +74,7 @@ export default function Home({ repositoriesData }: homeProps) {
   const mouseEnterResume = () => setCursorVariant('resume')
 
   return (
-    <div className=" relative md:gap-6 flex flex-col ">
+    <div className="relative md:gap-6 flex flex-col mx-auto max-w-5xl">
       {/* bolinha que segue o cursor */}
       <motion.div
         ref={ref}
@@ -99,90 +102,13 @@ export default function Home({ repositoriesData }: homeProps) {
       </div>
 
       {/* secao de apresentacao */}
-      <div className="h-screen md:h-[60vh] mx-auto p-8 before:content-[''] before:p-4 md:before:content-['About'] before:text-[#8892b0]/5 before:absolute before:text-9xl before:font-bold">
-        <div className="sm:px-24 md:justify-between h-full flex flex-col items-center justify-center md:flex-row">
-          <Section delay={0.2}>
-            <div className="mb-20 flex flex-col max-w-4xl">
-              <span className="mb-6 font-semibold text-[#8892b0]">Hi, my name is, hi</span>
-              <h2
-                onMouseEnter={mouseEnterText}
-                onMouseLeave={mouseLeave}
-                className=" text-4xl text-[#ccd6f6] font-bold w-80"
-              >
-                Matheus Oliveira
-              </h2>
-              <h2 className=" text-4xl mt-2 text-[#8892b0] font-bold mb-6">
-                I build things for the web.
-              </h2>
-              <span className="text-lg text-[#8892b0]" style={{fontFamily: "Roboto Mono"}}>
-                Matheus is someone who is passionate about technology, sports
-                and history. Someone who is fascinated to learn new things
-                involving code lines, always looking improve my knowledge to
-                solve the more simple real-life problem with code{' '}
-              </span>
-            </div>
-            <Button 
-              onMouseEnter={mouseEnterResume}
-              onMouseLeave={mouseLeave}
-              text="Check out my resume"
-            />
-          </Section>
-        </div>
-      </div>
+      <Presentation mouseEnterText={mouseEnterText} mouseLeave={mouseLeave} mouseEnterResume={mouseEnterResume} />
 
       {/* secao dos repositorios */}
-      <div className="max-w-6xl mx-auto mt-8 flex flex-col justify-center px-8">
-        <div>
-          <div className="flex flex-col justify-center items-center w-full my-8">
-            <h2 className="text-[#ccd6f6] font-bold text-2xl mb-8">
-              Other Noteworthy Projects
-            </h2>
-            <span></span>
-          </div>
-          <div className="flex-1 flex justify-center flex-wrap gap-5">
-            {repositoriesData.map((repo, index) => {
-              return (
-                <Card
-                  key={repo.id}
-                  name={repo.name}
-                  description={repo.description}
-                  language={repo.language}
-                  duration={index}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
+      <Repositories repositoriesData={repositoriesData} />
 
       {/* secao dos projetos */}
-      <div className="mt-12 px-8 flex relative items-center justify-center flex-col">
-        <div className="flex flex-col justify-center items-center w-full my-8">
-          <h2 className="text-[#ccd6f6] font-bold text-2xl">
-            Main Projects
-          </h2>
-          <span></span>
-        </div>
-        <div className="flex flex-col relative md:flex-row w-full max-w-5xl justify-between py-16 gap-8 ">
-          <div className="flex max-w-md h-40 md:sticky md:top-8 flex-col gap-4">
-            <h2 className="text-2xl font-bold text-[#fffffe]">
-              Some Things I’ve Built
-            </h2>
-            <span className="text-lg text-[#8892b0]">
-              Each color portrays a different feeling or emotion, and by
-              understanding the psychology of color, you can choose a color that
-              will resonate with your target audience and give off the vibe &
-              emotion you want.
-            </span>
-          </div>
-          <div className="flex items-center md:items-end flex-1 flex-col">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-          </div>
-        </div>
-      </div>
+      <Projects />
 
       {/* footer */}
       <footer className=" flex flex-col h-[60vh]">
