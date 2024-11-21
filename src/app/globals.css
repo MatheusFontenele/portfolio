@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0a192f] text-white;
+  }
+  section {
+    &.hello {
+      @apply flex flex-col justify-center items-center w-full h-screen py-4;
+    }
+  }
+}
+
+@layer components {
+  .wrapper {
+    @apply mx-auto lg:max-w-4xl md:max-w-xl flex flex-col px-6 border-2;
+    section + section {
+      @apply my-12;
+    }
+  }
+  .mouse {
+    @apply w-[25px] h-[40px] border-2 border-white rounded-full relative;
+    & .scroll {
+      @apply absolute w-[2px] h-[8px] bg-white rounded-full mx-[10px] mt-2 animate-bounce;
+    }
+  }
+}

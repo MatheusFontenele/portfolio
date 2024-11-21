@@ -28,3 +28,9 @@
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
+@layer utilities {
+  .container {
+    @apply mt-12 px-4;
+  }
+}
