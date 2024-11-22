@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="z-[50] hidden lg:flex sticky top-0 w-full bg-[#0a192f] border-b border-white/[0.1]">
+        <header className="z-[50] hidden lg:flex sticky top-0 w-full h-14 bg-black border-b border-white/[0.1]">
           <nav className="border-b border-white/[0.1] lg:max-w-4xl mx-auto">
             navbar
           </nav>

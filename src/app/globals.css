@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#0a192f] text-white;
+    @apply bg-black text-white;
   }
   section {
     &.hello {
@@ -15,7 +15,7 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto lg:max-w-4xl md:max-w-xl flex flex-col px-6 border-2;
+    @apply mx-auto lg:max-w-7xl md:max-w-xl flex flex-col px-6;
     section + section {
       @apply my-12;
     }
