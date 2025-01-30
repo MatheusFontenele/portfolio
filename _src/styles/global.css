@@ -34,3 +34,9 @@
     @apply mt-12 px-4;
   }
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

@@ -7,23 +7,40 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
-  content: [
+    // darkMode: ["class"],
+    content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      animation: {
-        move: "move 5s linear infinite",
-      },
-      keyframes: {
-        move: {
-          "0%": { transform: "translateX(-200px)" },
-          "100%": { transform: "translateX(200px)" },
+  	extend: {
+  		animation: {
+  			move: 'move 5s linear infinite',
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+  		},
+  		keyframes: {
+  			move: {
+  				'0%': {
+  					transform: 'translateX(-200px)'
+  				},
+  				'100%': {
+  					transform: 'translateX(200px)'
+  				}
+  			},
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
         },
-      },
-    }
+  		},
+  		// borderRadius: {
+  		// 	lg: 'var(--radius)',
+  		// 	md: 'calc(var(--radius) - 2px)',
+  		// 	sm: 'calc(var(--radius) - 4px)'
+  		// },
+  		// colors: {}
+  	}
   },
   plugins: [
     function ({ matchUtilities, theme }: any) {
@@ -48,6 +65,20 @@ const config: Config = {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
-  ],
+    addVariablesForColors,
+    require("tailwindcss-animate")
+],
 };
 export default config;
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}
+
